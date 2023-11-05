@@ -1,6 +1,12 @@
-import React, { useState, MouseEvent, KeyboardEvent, FormEvent } from 'react'
+import React, {
+  useState,
+  Dispatch,
+  SetStateAction,
+  MouseEvent,
+  KeyboardEvent,
+  FormEvent,
+} from 'react'
 
-import { useChatbot } from '../hooks'
 import { ChatIcon, ChatContainer, ChatHeader, ChatFeed, ChatInput } from '.'
 
 type ChatMessageType = {
@@ -13,8 +19,13 @@ type SendMessageType = {
   event: MouseEvent | KeyboardEvent | FormEvent
 }
 
-export default function ChatBot() {
-  const { isOpen, toggle } = useChatbot()
+type ToggleType = {
+  isOpen?: boolean
+  setIsOpen?: Dispatch<SetStateAction<boolean>>
+  toggle: () => void
+}
+
+export default function ChatBot({ isOpen, toggle }: ToggleType) {
   const [loading, setLoading] = useState<boolean>(false)
   const [message, setMessage] = useState<string>('')
   const [messages, setMessages] = useState<ChatMessageType[]>([
