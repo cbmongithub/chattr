@@ -1,13 +1,6 @@
-import React, {
-  useState,
-  Dispatch,
-  SetStateAction,
-  MouseEvent,
-  KeyboardEvent,
-  FormEvent,
-} from 'react'
+import React, { useState, MouseEvent, KeyboardEvent, FormEvent } from 'react'
 
-import { ChatIcon, ChatContainer, ChatHeader, ChatFeed, ChatInput } from '.'
+import { ChatContainer, ChatHeader, ChatFeed, ChatInput } from '../index'
 
 type ChatMessageType = {
   text: string
@@ -19,13 +12,7 @@ type SendMessageType = {
   event: MouseEvent | KeyboardEvent | FormEvent
 }
 
-type ToggleType = {
-  isOpen?: boolean
-  setIsOpen?: Dispatch<SetStateAction<boolean>>
-  toggle: () => void
-}
-
-export default function ChatBot({ isOpen, toggle }: ToggleType) {
+export default function ChatBot({ toggle }: { toggle: () => void }) {
   const [loading, setLoading] = useState<boolean>(false)
   const [message, setMessage] = useState<string>('')
   const [messages, setMessages] = useState<ChatMessageType[]>([
@@ -80,7 +67,7 @@ export default function ChatBot({ isOpen, toggle }: ToggleType) {
     }
   }
 
-  return isOpen ? (
+  return (
     <ChatContainer>
       <ChatHeader toggle={toggle} />
       <ChatFeed messages={messages} loading={loading} />
@@ -91,7 +78,5 @@ export default function ChatBot({ isOpen, toggle }: ToggleType) {
         loading={loading}
       />
     </ChatContainer>
-  ) : (
-    <ChatIcon toggle={toggle} />
   )
 }
