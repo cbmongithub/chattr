@@ -7,6 +7,9 @@
   },
   "author": "Christian B. Martinez",
   "license": "MIT",
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",

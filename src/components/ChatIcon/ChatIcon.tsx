@@ -1,12 +1,6 @@
-import React, { Dispatch, SetStateAction } from 'react'
+import React from 'react'
 
-type ToggleType = {
-  isOpen?: boolean
-  setIsOpen?: Dispatch<SetStateAction<boolean>>
-  toggle: () => void
-}
-
-export default function ChatIcon({ toggle }: ToggleType) {
+export default function ChatIcon({ toggle }: { toggle: () => void }) {
   console.log('%c Chat Icon Rendered!', 'background: #1cc2a4; color: #000000')
   return (
     <div className='fixed bottom-4 right-4 z-20 flex items-center justify-center md:flex-1'>

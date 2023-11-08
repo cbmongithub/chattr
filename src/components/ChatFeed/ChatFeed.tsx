@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, memo } from 'react'
 
-import { ChatLoader, ChatMessage } from '.'
+import { ChatLoader, ChatMessage } from '../index'
 
 type ChatMessageType = {
   text: string

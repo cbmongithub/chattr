@@ -1,19 +1,8 @@
-import ChatContainer from './chat-container'
-import ChatFeed from './chat-feed'
-import ChatHeader from './chat-header'
-import ChatIcon from './chat-icon'
-import ChatInput from './chat-input'
-import ChatLoader from './chat-loader'
-import ChatMessage from './chat-message'
-import Chat from './chat'
-
-export {
-  ChatIcon,
-  ChatContainer,
-  ChatFeed,
-  ChatHeader,
-  ChatInput,
-  ChatLoader,
-  ChatMessage,
-  Chat,
-}
+export { default as ChatContainer } from './ChatContainer'
+export { default as ChatFeed } from './ChatFeed'
+export { default as ChatHeader } from './ChatHeader'
+export { default as ChatIcon } from './ChatIcon'
+export { default as ChatInput } from './ChatInput'
+export { default as ChatLoader } from './ChatLoader'
+export { default as ChatMessage } from './ChatMessage'
+export { default as Chatbot } from './Chatbot'
