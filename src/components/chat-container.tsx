@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ChatContainer({
+export default function ChatContainerComponent({
   children,
 }: {
   children: React.ReactNode

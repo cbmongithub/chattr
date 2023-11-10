@@ -1,15 +1,15 @@
-import React, { memo } from 'react'
+import React from 'react'
 
-type ChatMessageType = {
+type ChatMessage = {
   text: string
-  role: string
+  role: 'assistant' | 'user'
   key?: string | number
 }
 
-function ChatMessage({
+const ChatMessageComponent = React.memo(function ChatMessage({
   message: { text, role, key },
 }: {
-  message: ChatMessageType
+  message: ChatMessage
 }) {
   console.log('%c Chat Message Rendered!', 'background: #222; color: #ffffff')
   return role === 'user' ? (
@@ -35,6 +35,6 @@ function ChatMessage({
       </p>
     </div>
   )
-}
+})
 
-export default memo(ChatMessage)
+export default ChatMessageComponent

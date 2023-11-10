@@ -1,28 +1,22 @@
-import React, { useEffect, useRef, memo } from 'react'
+import React from 'react'
 
-import { ChatLoader, ChatMessage } from '../index'
+import { ChatLoader, ChatMessage } from './index'
 
-type ChatMessageType = {
+type ChatFeed = {
   text: string
-  role: string
+  role: 'assistant' | 'user'
   key?: string | number
 }
 
-function ChatFeed({
+const ChatFeedComponent = React.memo(function ChatFeedComponent({
+  ref,
   messages,
   loading,
 }: {
-  messages: ChatMessageType[]
+  ref: React.RefObject<HTMLDivElement>
+  messages: ChatFeed[]
   loading: boolean
 }) {
-  const ref = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (ref.current) {
-      ref.current.scrollTop = ref.current.scrollHeight
-    }
-  }, [messages])
-
   console.log('%c Chat Feed Rendered!', 'background: #cf19ab; color: #ffffff')
 
   return (
@@ -34,6 +28,6 @@ function ChatFeed({
       {loading && <ChatLoader />}
     </div>
   )
-}
+})
 
-export default memo(ChatFeed)
+export default ChatFeedComponent

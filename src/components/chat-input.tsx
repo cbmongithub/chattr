@@ -1,24 +1,20 @@
-import React, {
-  Dispatch,
-  SetStateAction,
-  MouseEvent,
-  KeyboardEvent,
-  FormEvent,
-} from 'react'
+import React from 'react'
 
-type ChatInputType = {
-  setMessage: Dispatch<SetStateAction<string>>
-  sendMessage: (event: MouseEvent | KeyboardEvent | FormEvent) => void
+type ChatInput = {
+  setMessage: React.Dispatch<React.SetStateAction<string>>
+  sendMessage: (
+    event: React.MouseEvent | React.KeyboardEvent | React.FormEvent
+  ) => void
   message: string
   loading: boolean
 }
 
-export default function ChatInput({
+export default function ChatInputComponent({
   setMessage,
   sendMessage,
   message,
   loading,
-}: ChatInputType) {
+}: ChatInput) {
   console.log('%c Chat Input Rendered!', 'background: #3ba334; color: #ffffff')
   return (
     <form
