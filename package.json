@@ -1,6 +1,6 @@
 {
   "name": "chattr",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Under construction! A customizable chatgpt chatbot ui component library for react.",
   "scripts": {
     "build": "rollup -c && npm publish"

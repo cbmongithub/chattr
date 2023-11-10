@@ -20,7 +20,7 @@ type SendMessage = {
   event: React.MouseEvent | React.KeyboardEvent | React.FormEvent
 }
 
-export default function ReactJsChatBot() {
+export default function ChatBot() {
   const ref = React.useRef<HTMLDivElement>(null)
   const { isOpen, toggle } = useChatbot()
   const [loading, setLoading] = React.useState(false)
