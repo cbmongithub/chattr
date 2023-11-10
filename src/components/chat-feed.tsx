@@ -1,6 +1,7 @@
 import React from 'react'
 
-import { ChatLoader, ChatMessage } from './index'
+import ChatLoader from './chat-loader';
+import ChatMessage from './chat-message';
 
 type ChatFeed = {
   text: string
@@ -18,9 +19,6 @@ const ChatFeedComponent = React.memo(
     { messages, loading }: ChatFeedComponentProps,
     ref: React.ForwardedRef<HTMLDivElement>
   ) {
-
-  console.log('%c Chat Feed Rendered!', 'background: #cf19ab; color: #ffffff')
-
   return (
     <div ref={ref as React.MutableRefObject<HTMLDivElement>} className='max-h-[275px] flex-auto overflow-y-scroll px-3'>
       <div className='mb-3'></div>

@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function ChatLoaderComponent() {
-  console.log('%c Chat Loader Rendered!', 'background: #ff2929; color: #ffffff')
   return (
     <div className='mb-3 flex justify-start'>
       <div className='rounded-[0.85rem] border border-teal-600 px-0.5 py-1.5 dark:border-teal-500'>

@@ -11,7 +11,6 @@ const ChatMessageComponent = React.memo(function ChatMessage({
 }: {
   message: ChatMessage
 }) {
-  console.log('%c Chat Message Rendered!', 'background: #222; color: #ffffff')
   return role === 'user' ? (
     <div key={key} className='mb-3 flex justify-end'>
       <p className='flex items-center pr-2 text-sm font-semibold tracking-wide text-zinc-800 dark:text-zinc-100'>

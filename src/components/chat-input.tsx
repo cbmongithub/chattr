@@ -15,7 +15,6 @@ export default function ChatInputComponent({
   message,
   loading,
 }: ChatInput) {
-  console.log('%c Chat Input Rendered!', 'background: #3ba334; color: #ffffff')
   return (
     <form
       onSubmit={(event) => sendMessage(event)}

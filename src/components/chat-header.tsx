@@ -5,7 +5,6 @@ const ChatHeaderComponent = React.memo(function ChatHeaderComponent({
 }: {
   toggle: () => void
 }) {
-  console.log('%c Chat Header Rendered!', 'background: #d68316; color: #ffffff')
   return (
     <div className='z-40 flex h-14 w-full items-center justify-between rounded-t-2xl border-b border-zinc-300 bg-zinc-200 px-3 py-2 dark:border-zinc-800 dark:bg-zinc-950'>
       <div className='ml-1 flex flex-[0.5] justify-start'>
