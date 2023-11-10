@@ -1,7 +1,6 @@
 import React from 'react'
 
-export default function ChatIcon({ toggle }: { toggle: () => void }) {
-  console.log('%c Chat Icon Rendered!', 'background: #1cc2a4; color: #000000')
+export default function ChatIconComponent({ toggle }: { toggle: () => void }) {
   return (
     <div className='fixed bottom-4 right-4 z-20 flex items-center justify-center md:flex-1'>
       <button

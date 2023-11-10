@@ -1,32 +1,48 @@
-import React, { useState, MouseEvent, KeyboardEvent, FormEvent } from 'react'
+import React from 'react'
 
-import { ChatContainer, ChatHeader, ChatFeed, ChatInput } from '../index'
+import {
+  ChatContainer,
+  ChatHeader,
+  ChatFeed,
+  ChatInput,
+  ChatIcon,
+} from '../components'
 
-type ChatMessageType = {
+import { useChatbot } from '../hooks'
+
+type ChatMessage = {
   text: string
-  role: string
+  role: 'assistant' | 'user'
   key?: string | number
 }
 
-type SendMessageType = {
-  event: MouseEvent | KeyboardEvent | FormEvent
+type SendMessage = {
+  event: React.MouseEvent | React.KeyboardEvent | React.FormEvent
 }
 
-export default function ChatBot({ toggle }: { toggle: () => void }) {
-  const [loading, setLoading] = useState<boolean>(false)
-  const [message, setMessage] = useState<string>('')
-  const [messages, setMessages] = useState<ChatMessageType[]>([
+export default function ChatBot() {
+  const ref = React.useRef<HTMLDivElement>(null)
+  const { isOpen, toggle } = useChatbot()
+  const [loading, setLoading] = React.useState(false)
+  const [message, setMessage] = React.useState('')
+  const [messages, setMessages] = React.useState<ChatMessage[]>([
     {
       text: 'Hey! Thanks for visiting. I am Christians personal Chatbot, you can ask me anything!',
       role: 'assistant',
     },
   ])
 
-  async function sendMessage(event: SendMessageType['event']) {
+  React.useEffect(() => {
+    if (ref.current) {
+      ref.current.scrollTop = ref.current.scrollHeight
+    }
+  }, [messages])
+
+  async function sendMessage(event: SendMessage['event']) {
     event.preventDefault()
     setMessage('')
     setLoading(true)
-    setMessages((prev) => [
+    setMessages(prev => [
       ...prev,
       {
         text: message,
@@ -48,7 +64,7 @@ export default function ChatBot({ toggle }: { toggle: () => void }) {
 
     if (answer.data.choices) {
       setLoading(false)
-      setMessages((prev) => [
+      setMessages(prev => [
         ...prev,
         {
           text: answer.data.choices[0].message.content,
@@ -57,7 +73,7 @@ export default function ChatBot({ toggle }: { toggle: () => void }) {
       ])
     } else {
       setLoading(false)
-      setMessages((prev) => [
+      setMessages(prev => [
         ...prev,
         {
           text: 'Something went wrong! Try again later.',
@@ -66,11 +82,14 @@ export default function ChatBot({ toggle }: { toggle: () => void }) {
       ])
     }
   }
-
-  return (
+  return isOpen ? (
     <ChatContainer>
       <ChatHeader toggle={toggle} />
-      <ChatFeed messages={messages} loading={loading} />
+      <ChatFeed
+        ref={ref}
+        messages={messages}
+        loading={loading}
+      />
       <ChatInput
         message={message}
         setMessage={setMessage}
@@ -78,5 +97,7 @@ export default function ChatBot({ toggle }: { toggle: () => void }) {
         loading={loading}
       />
     </ChatContainer>
+  ) : (
+    <ChatIcon toggle={toggle} />
   )
 }

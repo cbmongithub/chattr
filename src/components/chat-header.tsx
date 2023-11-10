@@ -1,7 +1,10 @@
-import React, { memo } from 'react'
+import React from 'react'
 
-function ChatHeader({ toggle }: { toggle: () => void }) {
-  console.log('%c Chat Header Rendered!', 'background: #d68316; color: #ffffff')
+const ChatHeaderComponent = React.memo(function ChatHeaderComponent({
+  toggle,
+}: {
+  toggle: () => void
+}) {
   return (
     <div className='z-40 flex h-14 w-full items-center justify-between rounded-t-2xl border-b border-zinc-300 bg-zinc-200 px-3 py-2 dark:border-zinc-800 dark:bg-zinc-950'>
       <div className='ml-1 flex flex-[0.5] justify-start'>
@@ -28,6 +31,6 @@ function ChatHeader({ toggle }: { toggle: () => void }) {
       </div>
     </div>
   )
-}
+})
 
-export default memo(ChatHeader)
+export default ChatHeaderComponent
