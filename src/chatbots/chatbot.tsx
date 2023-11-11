@@ -91,9 +91,9 @@ export default function ChatBot() {
         loading={loading}
       />
       <ChatInput
-        message={message}
         setMessage={setMessage}
         sendMessage={sendMessage}
+        message={message}
         loading={loading}
       />
     </ChatContainer>
