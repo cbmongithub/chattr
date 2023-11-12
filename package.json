@@ -1,12 +1,16 @@
 {
   "name": "chattr",
-  "version": "0.2.5",
-  "description": "Under construction! A customizable chatgpt chatbot ui component library for react.",
+  "version": "0.2.8",
+  "description": "In beta! A customizable chatgpt chatbot component library for react.",
   "scripts": {
     "build": "rollup -c && npm publish",
     "dev": "rollup -c"
   },
-  "author": "Christian B. Martinez",
+  "author": {
+    "name": "Christian B. Martinez",
+    "email": "hello@christianbmartinez.com",
+    "url": "https://christianbmartinez.com"
+  },
   "license": "MIT",
   "peerDependencies": {
     "react": "^18.2.0",
@@ -36,5 +40,40 @@
   "files": [
     "dist"
   ],
-  "types": "dist/index.d.ts"
+  "types": "dist/index.d.ts",
+  "keywords": [
+    "chatbot",
+    "chattr",
+    "chatgpt",
+    "chatGPT",
+    "chatGPT4",
+    "conversation",
+    "interactive",
+    "messaging",
+    "react-chatbot",
+    "nextjs-chatbot",
+    "TypeScript",
+    "tailwindcss",
+    "conversational-ui",
+    "AI",
+    "natural-language-processing",
+    "interactive-UI",
+    "conversational-interface",
+    "user-engagement",
+    "react-component",
+    "chat-application",
+    "react-library",
+    "bot-framework",
+    "conversational-UI-kit",
+    "chat-widget",
+    "chat-interface",
+    "TypeScript-library",
+    "Tailwind-CSS-styled",
+    "user-experience",
+    "responsive-design",
+    "conversational-experience",
+    "developer-friendly",
+    "modern-ui",
+    "npm-package"
+  ]
 }
