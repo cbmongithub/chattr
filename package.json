@@ -1,6 +1,7 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "chattr",
-  "version": "0.3.2",
+  "version": "0.3.4",
   "description": "In beta! A customizable chatgpt chatbot component library for react.",
   "scripts": {
     "build": "rollup -c && npm publish",
@@ -10,6 +11,13 @@
     "name": "Christian B. Martinez",
     "email": "hello@christianbmartinez.com",
     "url": "https://christianbmartinez.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/christianbmartinez/chattr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/christianbmartinez/chattr/issues"
   },
   "license": "MIT",
   "peerDependencies": {
