@@ -10,24 +10,30 @@ import {
 
 import { useChatbot } from '../hooks'
 
+type ChatBot = {
+  initialText: string
+  endPoint: RequestInfo | URL
+  errorMessage: string
+}
+
 type ChatMessage = {
   text: string
   role: 'assistant' | 'user'
   key?: string | number
 }
 
-type SendMessage = {
-  event: React.MouseEvent | React.KeyboardEvent | React.FormEvent
-}
-
-export default function ChatBot() {
+export default function ChatBot({
+  initialText,
+  endPoint,
+  errorMessage,
+}: ChatBot) {
   const ref = React.useRef<HTMLDivElement>(null)
   const { isOpen, toggle } = useChatbot()
   const [loading, setLoading] = React.useState(false)
   const [message, setMessage] = React.useState('')
   const [messages, setMessages] = React.useState<ChatMessage[]>([
     {
-      text: 'Hey! Thanks for visiting. I am Christians personal Chatbot, you can ask me anything!',
+      text: initialText,
       role: 'assistant',
     },
   ])
@@ -38,7 +44,9 @@ export default function ChatBot() {
     }
   }, [messages])
 
-  async function sendMessage(event: SendMessage['event']) {
+  async function sendMessage(
+    event: React.MouseEvent | React.KeyboardEvent | React.FormEvent
+  ) {
     event.preventDefault()
     setMessage('')
     setLoading(true)
@@ -50,7 +58,7 @@ export default function ChatBot() {
       },
     ])
 
-    const response = await fetch('/api/chatGpt', {
+    const response = await fetch(endPoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -76,7 +84,7 @@ export default function ChatBot() {
       setMessages(prev => [
         ...prev,
         {
-          text: 'Something went wrong! Try again later.',
+          text: errorMessage,
           role: 'assistant',
         },
       ])
@@ -91,9 +99,9 @@ export default function ChatBot() {
         loading={loading}
       />
       <ChatInput
-        message={message}
         setMessage={setMessage}
         sendMessage={sendMessage}
+        message={message}
         loading={loading}
       />
     </ChatContainer>
