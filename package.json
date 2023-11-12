@@ -1,6 +1,7 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "chattr",
-  "version": "0.2.8",
+  "version": "0.3.4",
   "description": "In beta! A customizable chatgpt chatbot component library for react.",
   "scripts": {
     "build": "rollup -c && npm publish",
@@ -10,6 +11,13 @@
     "name": "Christian B. Martinez",
     "email": "hello@christianbmartinez.com",
     "url": "https://christianbmartinez.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/christianbmartinez/chattr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/christianbmartinez/chattr/issues"
   },
   "license": "MIT",
   "peerDependencies": {
@@ -24,6 +32,7 @@
     "@rollup/plugin-typescript": "^11.1.5",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
+    "rollup-plugin-copy": "^3.5.0",
     "eslint-config-prettier": "^9.0.0",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.7",

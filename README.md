@@ -1,5 +1,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-![alt text](./chattr_img.jpg)
+
+<p><a href="https://www.npmjs.com/package/chattr"><img src="https://i.ibb.co/McGSP53/chattr-img.jpg" alt="chattr-img" border="1" /></a></p>
 
 # chattr
 
