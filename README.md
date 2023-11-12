@@ -1,5 +1,5 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-![alt text](https://github.com/christianbmartinez/react-portfolio/blob/main/public/react-portfolio.jpg)
+![alt text](https://github.com/christianbmartinez/chattr/blob/main/chattr_img.jpg)
 
 # chattr
 
