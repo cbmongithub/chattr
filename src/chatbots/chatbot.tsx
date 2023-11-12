@@ -17,10 +17,22 @@ type ChatBot = {
 }
 
 type ChatMessage = {
-  text: string
+  text: ChatBot['initialText'] | ChatBot['errorMessage'] | string
   role: 'assistant' | 'user'
   key?: string | number
 }
+
+/**
+ * ChatBot - A pre made chatbot solution with light/dark mode tailwind css classes.
+ *
+ * @param initialText - Set an initial chat message to greet the user.
+ *
+ * @param endPoint - Your chatGPT api endpoint. @see https://www.npmjs.com/package/chattr for details.
+ *
+ * @param errorMessage - The error message you want to display in the event of an error.
+ *
+ * @returns The rendered Chat Container component.
+ */
 
 export default function ChatBot({
   initialText,

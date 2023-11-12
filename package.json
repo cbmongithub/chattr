@@ -1,12 +1,16 @@
 {
   "name": "chattr",
   "version": "0.2.5",
-  "description": "Under construction! A customizable chatgpt chatbot ui component library for react.",
+  "description": "Under construction! A customizable chatgpt chatbot component library for react.",
   "scripts": {
     "build": "rollup -c && npm publish",
     "dev": "rollup -c"
   },
-  "author": "Christian B. Martinez",
+  "author": {
+    "name": "Christian B. Martinez",
+    "email": "hello@christianbmartinez.com",
+    "url": "https://christianbmartinez.com"
+  },
   "license": "MIT",
   "peerDependencies": {
     "react": "^18.2.0",

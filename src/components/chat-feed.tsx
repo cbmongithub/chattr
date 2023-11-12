@@ -72,9 +72,6 @@ interface ChatFeedComponentProps {
  * @param assistantNameClassName - Use a custom CSS class for the chatbot name in the message component. 
  * @default'flex items-center pl-2 text-sm font-semibold tracking-wide text-zinc-900 dark:text-zinc-100'
  * 
- * @param assistantName - Use a custom chatbot name in the message component.
- * @default'Chatbot'
- * 
  * @param assistantTextDivClassName - Use a custom CSS class for the chatbot text div.
  * @default'rounded-2xl border border-teal-600 px-3 py-2 dark:border-teal-500'
  * 
@@ -107,7 +104,6 @@ const ChatFeedComponent = React.memo(
       userTextDivClassName,
       userTextClassName,
       assistantNameClassName,
-      assistantName,
       assistantTextDivClassName,
       assistantTextClassName,
     }: ChatFeedComponentProps,
@@ -127,7 +123,7 @@ const ChatFeedComponent = React.memo(
             userTextDivClassName={userTextDivClassName}
             userTextClassName={userTextClassName}
             assistantNameClassName={assistantNameClassName}
-            assistantName={assistantName}
+            assistantName={chatBotName}
             assistantTextDivClassName={assistantTextDivClassName}
             assistantTextClassName={assistantTextClassName}
           />
