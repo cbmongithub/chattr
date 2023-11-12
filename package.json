@@ -1,6 +1,6 @@
 {
   "name": "chattr",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "description": "In beta! A customizable chatgpt chatbot component library for react.",
   "scripts": {
     "build": "rollup -c && npm publish",
@@ -24,6 +24,7 @@
     "@rollup/plugin-typescript": "^11.1.5",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
+    "rollup-plugin-copy": "^3.5.0",
     "eslint-config-prettier": "^9.0.0",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.7",
@@ -75,8 +76,5 @@
     "developer-friendly",
     "modern-ui",
     "npm-package"
-  ],
-  "dependencies": {
-    "rollup-plugin-copy": "^3.5.0"
-  }
+  ]
 }

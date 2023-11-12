@@ -1,5 +1,4 @@
 import resolve from '@rollup/plugin-node-resolve'
-import copy from 'rollup-plugin-copy'
 import commonjs from '@rollup/plugin-commonjs'
 import typescript from '@rollup/plugin-typescript'
 import { dts } from 'rollup-plugin-dts'
@@ -26,14 +25,6 @@ export default [
       commonjs(),
       typescript({
         tsconfig: './tsconfig.json',
-      }),
-      copy({
-        targets: [
-          {
-            src: 'screenshot.jpg',
-            dest: 'dist/',
-          },
-        ],
       }),
     ],
   },

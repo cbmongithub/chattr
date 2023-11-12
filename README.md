@@ -1,5 +1,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-![Screenshot](./screenshot.jpg)
+
+<p><a href="https://ibb.co/y6YPgBb"><img src="https://i.ibb.co/McGSP53/chattr-img.jpg" alt="chattr-img" border="1" /></a></p>
 
 # chattr
 
