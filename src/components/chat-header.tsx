@@ -8,7 +8,7 @@ type ChatHeader = {
   chatBotName?: string
   closeIconDivClassName?: string
   closeIconClassName?: string
-  closeIcon?: React.SVGProps<SVGSVGElement>
+  closeIcon?: React.ReactNode
 }
 
 /**
