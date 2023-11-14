@@ -16,6 +16,7 @@ A customizable chatgpt chatbot component library for React, built with tailwindc
 **[Customizations](#customizations)**<br>
 **[License](#license)**<br>
 **[Contributing](#contributing)**<br>
+**[Future Development](#future-development)**<br>
 **[Author](#author)**<br>
 
 # Installation
@@ -74,18 +75,18 @@ Next, you need an `OPENAI_API_KEY`. If you don't have one already, click [here](
 Once you have your key, install `dotenv` if required and create a `.env` file in the root of your project. Insert your api key there. **In production, remember to copy this api key, verbatim, to your environment variables section.**
 
 ```bash
-OPENAI_API_KEY='asdfkj2w38ou92example384u2ioashdfa_sk'
+OPENAI_API_KEY='YOUR_OPENAI_API_KEY'
 ```
 
 # Endpoints
 
-In order to use chattr, you have to create an endpoint that handles a post request to the chatGpt completions api. By default, chattr passes the users message as `prompt` to the backend. When developing your api endpoint, you must extract the "prompt" parameter.
+In order to use chattr, you have to create an endpoint that handles a post request to the chatGpt completions api. By default, chattr passes the users message as `prompt` to the backend. When developing your api endpoint, you must extract the "prompt" parameter. If you decide to [customize](#customizations) your chatbot with the boilerplate, you can configure it to send a request directly to open ai's completions endpoint instead.
 
-Here is an example of an api route in Next js, where we are destructuring the prompt that contains the users message, submitted from the client.
+For Next js, here is an example of an api route where we are destructuring the prompt that contains the users message, and inserting it into a payload.
 
 In the payload, we have our chatgpt model, instructions, the users prompt, and other configurations.
 
-We are then posting that data to the chat gpt completions endpoint as a string with our api key, and get back an response from open ai.
+We are then posting that data to the chat gpt completions endpoint as a string with our api key, to get back a subsequent response from open ai.
 
 ```typescript
 // app/api/chatGpt/route.ts
@@ -134,6 +135,8 @@ export async function POST(req: NextRequest) {
 }
 ```
 
+It's worth mentioning that you should protect this route with some type of authentication, or at the very least, use a rate limiter. `@upstash/ratelimit @upstash/redis` is a great option. You can view the package [here](https://www.npmjs.com/package/@upstash/ratelimit).
+
 # Usage for Nextjs
 
 For quick and easy setup in Next js, you can import a ready made chatbot. Just wrap it in a separate component with the `use client` directive:
@@ -155,7 +158,7 @@ export default function ChattrExample() {
 }
 ```
 
-Then all you have to do is import it wherever you'd like. For example, in your layout component:
+Then import it wherever you'd like. For example, in your layout component:
 
 ```tsx
 // app/layout.tsx
@@ -336,6 +339,10 @@ This project is covered under the [MIT](https://opensource.org/licenses/MIT) lic
 # Contributing
 
 If you would like to contribute, [contact](mailto:hello@christianbmartinez.com?subject=[chattr]%20contribution%20inquiry) me!
+
+# Future Development
+
+I am currently working on a highly customizable version as we speak! The goal is to enable users to be able to fully customize any element, use pre made themes, have a website with docs and a configuration tool, and more! It's been fun building this so far, and I really hope you tag along for the ride.
 
 # Author
 
