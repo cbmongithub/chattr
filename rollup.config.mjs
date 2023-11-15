@@ -1,5 +1,6 @@
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
+import terser from '@rollup/plugin-terser'
 import typescript from '@rollup/plugin-typescript'
 import { dts } from 'rollup-plugin-dts'
 import packageJson from './package.json' assert { type: 'json' }
@@ -21,6 +22,9 @@ export default [
       },
     ],
     plugins: [
+      terser({
+        maxWorkers: 4,
+      }),
       resolve(),
       commonjs(),
       typescript({

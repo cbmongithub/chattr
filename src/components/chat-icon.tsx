@@ -4,7 +4,7 @@ type ChatIcon = {
   toggle: () => void
   className?: string
   openIconButtonClassName?: string
-  openIcon?: React.SVGProps<SVGSVGElement>
+  openIcon?: React.ReactNode
 }
 
 /**
