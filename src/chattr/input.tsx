@@ -14,6 +14,8 @@ export default function input({
 }: InputProps) {
   return (
     <input
+      type='text'
+      required
       className={className}
       {...props}
     />
