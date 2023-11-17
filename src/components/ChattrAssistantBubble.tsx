@@ -1,5 +1,5 @@
 import React from 'react'
-import { chattr } from '../chattr'
+import chattr from '../chattr'
 
 type ChattrAssistantBubble = {
   key?: string | number

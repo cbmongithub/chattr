@@ -1,11 +1,9 @@
 import React from 'react'
-import { chattr } from '../chattr'
+import chattr from '../chattr'
 
 interface ChatIcon {
   toggle: () => void
   className?: string
-  openIconButtonClassName?: string
-  openIcon?: React.ReactNode
 }
 
 export default function ChattrOpenIcon({

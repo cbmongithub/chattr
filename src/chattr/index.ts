@@ -8,7 +8,7 @@ import p from './p'
 import path from './path'
 import svg from './svg'
 
-export const chattr = {
+const chattr = {
   a,
   button,
   div,
@@ -19,3 +19,5 @@ export const chattr = {
   path,
   svg,
 }
+
+export default chattr

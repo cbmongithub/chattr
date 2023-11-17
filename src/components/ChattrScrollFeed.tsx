@@ -1,5 +1,5 @@
 import React from 'react'
-import { chattr } from '../chattr'
+import chattr from '../chattr'
 
 import ChattrLoader from './ChattrLoader'
 import ChattrMessages from './ChattrMessages'
@@ -31,7 +31,7 @@ const ChattrScrollFeedComponent = React.memo(
   ) {
     return (
       <chattr.div
-        ref={ref as React.MutableRefObject<HTMLDivElement>}
+        forwardedRef={ref as React.MutableRefObject<HTMLDivElement>}
         className={className}>
         <chattr.div className='mb-3'></chattr.div>
         {messages.map((message, i) => (
