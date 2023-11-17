@@ -1,10 +1,10 @@
 import React from 'react'
-import { chattr } from '..'
+import { chattr } from '../chattr'
 
 import ChattrLoader from './ChattrLoader'
 import ChattrMessages from './ChattrMessages'
 
-type ChattrScrollFeed = {
+type ChattrScrollFeedMessages = {
   text: string
   role: 'assistant' | 'user'
   key?: string | number
@@ -12,7 +12,7 @@ type ChattrScrollFeed = {
 
 interface ChattrScrollFeedComponentProps {
   className?: string
-  messages: ChattrScrollFeed[]
+  messages: ChattrScrollFeedMessages[]
   loading: boolean
   chattrName?: string | number
   userName?: string | number

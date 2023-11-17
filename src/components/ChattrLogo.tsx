@@ -1,5 +1,5 @@
 import React from 'react'
-import { chattr } from '..'
+import { chattr } from '../chattr'
 
 type ChattrLogo = {
   className?: string

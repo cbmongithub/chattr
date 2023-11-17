@@ -1,5 +1,5 @@
 import React from 'react'
-import { chattr } from '..'
+import { chattr } from '../chattr'
 
 import ChattrCloseIcon from './ChattrCloseIcon'
 import ChattrLogo from './ChattrLogo'

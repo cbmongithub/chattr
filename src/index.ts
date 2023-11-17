@@ -8,5 +8,3 @@
 export * from './chatbots'
 export * from './components'
 export * from './hooks'
-export * from './chattr'
-export * from './chattr/components'
