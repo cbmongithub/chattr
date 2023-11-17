@@ -8,7 +8,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 export default function button({
   toggle,
-  className = 'ml-2 h-10 flex-none items-center justify-center gap-2 rounded-xl bg-zinc-800 px-3 py-2 text-sm font-semibold text-zinc-100 outline-offset-2 hover:bg-zinc-700 active:bg-zinc-800 active:text-zinc-100/70 active:transition-none dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:active:bg-zinc-700 dark:active:text-zinc-100/70',
+  className,
   children,
   ...props
 }: ButtonProps) {

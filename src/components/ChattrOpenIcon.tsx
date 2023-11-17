@@ -1,17 +1,16 @@
 import React from 'react'
-import { chattr } from '..'
+import chattr from '../chattr'
 
 interface ChatIcon {
   toggle: () => void
   className?: string
-  openIconButtonClassName?: string
-  openIcon?: React.ReactNode
 }
 
 export default function ChattrOpenIcon({
   toggle,
   className = 'fixed bottom-4 right-4 z-20 flex items-center justify-center md:flex-1',
 }: ChatIcon) {
+  console.log('%c ChattrOpenIcon Rendered!', 'background: #222; color: #fff')
   return (
     <chattr.div className={className}>
       <chattr.button

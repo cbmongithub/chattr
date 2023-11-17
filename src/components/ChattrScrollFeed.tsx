@@ -1,10 +1,10 @@
 import React from 'react'
-import { chattr } from '..'
+import chattr from '../chattr'
 
 import ChattrLoader from './ChattrLoader'
 import ChattrMessages from './ChattrMessages'
 
-type ChattrScrollFeed = {
+type ChattrScrollFeedMessages = {
   text: string
   role: 'assistant' | 'user'
   key?: string | number
@@ -12,7 +12,7 @@ type ChattrScrollFeed = {
 
 interface ChattrScrollFeedComponentProps {
   className?: string
-  messages: ChattrScrollFeed[]
+  messages: ChattrScrollFeedMessages[]
   loading: boolean
   chattrName?: string | number
   userName?: string | number
@@ -29,9 +29,13 @@ const ChattrScrollFeedComponent = React.memo(
     }: ChattrScrollFeedComponentProps,
     ref: React.ForwardedRef<HTMLDivElement>
   ) {
+    console.log(
+      '%c ChattrScrollFeed Rendered!',
+      'background: #9B59B6; color: #fff'
+    )
     return (
       <chattr.div
-        ref={ref as React.MutableRefObject<HTMLDivElement>}
+        forwardedRef={ref as React.MutableRefObject<HTMLDivElement>}
         className={className}>
         <chattr.div className='mb-3'></chattr.div>
         {messages.map((message, i) => (

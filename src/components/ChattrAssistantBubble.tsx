@@ -1,5 +1,5 @@
 import React from 'react'
-import { chattr } from '..'
+import chattr from '../chattr'
 
 type ChattrAssistantBubble = {
   key?: string | number
@@ -12,6 +12,10 @@ export default function ChattrAssistantBubble({
   chattrName,
   text,
 }: ChattrAssistantBubble) {
+  console.log(
+    '%c ChattrAssistantBubble Rendered!',
+    'background: #2EB651; color: #fff'
+  )
   return (
     <chattr.div
       key={key}
