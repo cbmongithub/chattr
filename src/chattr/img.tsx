@@ -8,10 +8,7 @@ interface ImgProps
   className?: string
 }
 
-export default function img({
-  className = 'mb-4 ml-2 h-8 w-8 rounded-full object-cover',
-  ...props
-}: ImgProps) {
+export default function img({ className, ...props }: ImgProps) {
   return (
     <img
       className={className}

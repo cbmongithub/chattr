@@ -29,6 +29,10 @@ const ChattrScrollFeedComponent = React.memo(
     }: ChattrScrollFeedComponentProps,
     ref: React.ForwardedRef<HTMLDivElement>
   ) {
+    console.log(
+      '%c ChattrScrollFeed Rendered!',
+      'background: #9B59B6; color: #fff'
+    )
     return (
       <chattr.div
         forwardedRef={ref as React.MutableRefObject<HTMLDivElement>}

@@ -3,7 +3,7 @@ import React from 'react'
 import ChattrAssistantBubble from './ChattrAssistantBubble'
 import ChattrUserBubble from './ChattrUserBubble'
 
-type ChattrMessages = {
+interface ChattrMessagesProps {
   text: string
   role: 'user' | 'assistant'
   key?: string | number
@@ -11,15 +11,16 @@ type ChattrMessages = {
   userName?: string | number
 }
 
-export default function ChattrMessages({
+function ChattrMessages({
   message: { text, role, key },
   chattrName = 'Chattrbot',
   userName = 'You',
 }: {
-  message: ChattrMessages
-  chattrName: ChattrMessages['chattrName']
-  userName: ChattrMessages['userName']
+  message: ChattrMessagesProps
+  chattrName: ChattrMessagesProps['chattrName']
+  userName: ChattrMessagesProps['userName']
 }) {
+  console.log('%c ChattrMessages Rendered!', 'background: #3498DB; color: #fff')
   return role === 'user' ? (
     <ChattrUserBubble
       key={key}
@@ -34,3 +35,5 @@ export default function ChattrMessages({
     />
   )
 }
+
+export default React.memo(ChattrMessages)

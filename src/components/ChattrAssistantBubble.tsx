@@ -12,6 +12,10 @@ export default function ChattrAssistantBubble({
   chattrName,
   text,
 }: ChattrAssistantBubble) {
+  console.log(
+    '%c ChattrAssistantBubble Rendered!',
+    'background: #2EB651; color: #fff'
+  )
   return (
     <chattr.div
       key={key}

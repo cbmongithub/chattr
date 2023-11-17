@@ -9,11 +9,7 @@ interface PProps
   children: React.ReactNode
 }
 
-export default function p({
-  className = 'mb-4 ml-2 h-8 w-8 rounded-full object-cover',
-  children,
-  ...props
-}: PProps) {
+export default function p({ className, children, ...props }: PProps) {
   return (
     <p
       className={className}

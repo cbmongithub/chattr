@@ -12,6 +12,10 @@ export default function ChattrUserBubble({
   userName,
   text,
 }: ChattrUserBubble) {
+  console.log(
+    '%c ChattrUserBubble Rendered!',
+    'background: #E74C3C; color: #fff'
+  )
   return (
     <chattr.div
       key={key}
