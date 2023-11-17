@@ -1,9 +1,17 @@
 import React from 'react'
 import { chattr } from '..'
 
-export default function ChattrCloseIcon({ toggle }: { toggle: () => void }) {
+type ChattrCloseIcon = {
+  className?: string
+  toggle: () => void
+}
+
+export default function ChattrCloseIcon({
+  className = 'mr-1 flex flex-[0.5] justify-end',
+  toggle,
+}: ChattrCloseIcon) {
   return (
-    <chattr.div className='mr-1 flex flex-[0.5] justify-end'>
+    <chattr.div className={className}>
       <chattr.a onClick={toggle}>
         <chattr.svg
           stroke='currentColor'
