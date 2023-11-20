@@ -1,14 +1,14 @@
 import React from 'react'
 import chattr from '../chattr'
 
-type ChattrLoader = {
-  chattrName?: string | number
-}
-
 export default function ChattrLoader({
   chattrName = 'Chattrbot',
-}: ChattrLoader) {
-  console.log('%c ChattrLoader Rendered!', 'background: #27AE60; color: #fff')
+}: {
+  chattrName?: string | number
+}): React.JSX.Element {
+  if (process.env.NODE_ENV === 'development') {
+    console.log('%c ChattrLoader Rendered!', 'background: #27AE60; color: #fff')
+  }
   return (
     <chattr.div className='mb-3 flex justify-start'>
       <chattr.div className='rounded-[0.85rem] border border-teal-600 px-0.5 py-1.5 dark:border-teal-500'>

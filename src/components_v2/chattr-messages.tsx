@@ -1,15 +1,8 @@
 import React from 'react'
+import type { ChattrMessagesProps } from '../types'
 
-import ChattrAssistantBubble from './ChattrAssistantBubble'
-import ChattrUserBubble from './ChattrUserBubble'
-
-interface ChattrMessagesProps {
-  text: string
-  role: 'user' | 'assistant'
-  key?: string | number
-  chattrName?: string | number
-  userName?: string | number
-}
+import ChattrUserBubble from './chattr-user-bubble'
+import ChattrAssistantBubble from './chattr-assistant-bubble'
 
 function ChattrMessages({
   message: { text, role, key },
@@ -19,8 +12,13 @@ function ChattrMessages({
   message: ChattrMessagesProps
   chattrName: ChattrMessagesProps['chattrName']
   userName: ChattrMessagesProps['userName']
-}) {
-  console.log('%c ChattrMessages Rendered!', 'background: #3498DB; color: #fff')
+}): React.JSX.Element {
+  if (process.env.NODE_ENV === 'development') {
+    console.log(
+      '%c ChattrMessages Rendered!',
+      'background: #3498DB; color: #fff'
+    )
+  }
   return role === 'user' ? (
     <ChattrUserBubble
       key={key}

@@ -1,21 +1,18 @@
 import React from 'react'
 import chattr from '../chattr'
-
-type ChattrAssistantBubble = {
-  key?: string | number
-  chattrName: string | number
-  text: string
-}
+import type { ChattrAssistantBubbleProps } from '../types'
 
 export default function ChattrAssistantBubble({
   key,
   chattrName,
   text,
-}: ChattrAssistantBubble) {
-  console.log(
-    '%c ChattrAssistantBubble Rendered!',
-    'background: #2EB651; color: #fff'
-  )
+}: ChattrAssistantBubbleProps): React.JSX.Element {
+  if (process.env.NODE_ENV === 'development') {
+    console.log(
+      '%c ChattrAssistantBubble Rendered!',
+      'background: #2EB651; color: #fff'
+    )
+  }
   return (
     <chattr.div
       key={key}

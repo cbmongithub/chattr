@@ -1,42 +1,25 @@
 import React from 'react'
 import chattr from '../chattr'
+import type { ChattrScrollFeedProps } from '../types'
 
-import ChattrLoader from './ChattrLoader'
-import ChattrMessages from './ChattrMessages'
-
-type ChattrScrollFeedMessages = {
-  text: string
-  role: 'assistant' | 'user'
-  key?: string | number
-}
-
-interface ChattrScrollFeedComponentProps {
-  className?: string
-  messages: ChattrScrollFeedMessages[]
-  loading: boolean
-  chattrName?: string | number
-  userName?: string | number
-}
+import ChattrMessages from './chattr-messages'
+import ChattrLoader from './chattr-loader'
 
 const ChattrScrollFeedComponent = React.memo(
   React.forwardRef(function ChattrScrollFeed(
-    {
-      className = 'max-h-[275px] flex-auto overflow-y-scroll px-3',
-      messages,
-      loading,
-      chattrName,
-      userName,
-    }: ChattrScrollFeedComponentProps,
+    { messages, loading, chattrName, userName }: ChattrScrollFeedProps,
     ref: React.ForwardedRef<HTMLDivElement>
-  ) {
-    console.log(
-      '%c ChattrScrollFeed Rendered!',
-      'background: #9B59B6; color: #fff'
-    )
+  ): React.JSX.Element {
+    if (process.env.NODE_ENV === 'development') {
+      console.log(
+        '%c ChattrScrollFeed Rendered!',
+        'background: #9B59B6; color: #fff'
+      )
+    }
     return (
       <chattr.div
         forwardedRef={ref as React.MutableRefObject<HTMLDivElement>}
-        className={className}>
+        className='max-h-[275px] flex-auto overflow-y-scroll px-3'>
         <chattr.div className='mb-3'></chattr.div>
         {messages.map((message, i) => (
           <ChattrMessages

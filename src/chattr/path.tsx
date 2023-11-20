@@ -1,5 +1,13 @@
 import React from 'react'
 
-export default function path({ ...props }: React.SVGProps<SVGPathElement>) {
-  return <path {...props}></path>
+interface PathProps extends React.SVGProps<SVGPathElement> {
+  className?: string
+}
+
+export default function path({ className, ...props }: PathProps) {
+  return (
+    <path
+      className={className}
+      {...props}></path>
+  )
 }

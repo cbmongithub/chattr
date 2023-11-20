@@ -1,16 +1,17 @@
 import React from 'react'
 import chattr from '../chattr'
+import type { ChattrCloseIconProps } from '../types'
 
-type ChattrCloseIcon = {
-  children?: React.SVGProps<SVGSVGElement>
-  toggle: () => void
-}
-
-export default function ChattrCloseIcon({ children, toggle }: ChattrCloseIcon) {
-  console.log(
-    '%c ChattrCloseIcon Rendered!',
-    'background: #DA4AB7; color: #fff'
-  )
+export default function ChattrCloseIcon({
+  children,
+  toggle,
+}: ChattrCloseIconProps): React.JSX.Element {
+  if (process.env.NODE_ENV === 'development') {
+    console.log(
+      '%c ChattrCloseIcon Rendered!',
+      'background: #DA4AB7; color: #fff'
+    )
+  }
   return (
     <chattr.div className='mr-1 flex flex-[0.5] justify-end'>
       <chattr.a
