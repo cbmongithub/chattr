@@ -1,22 +1,16 @@
 import React from 'react'
 import chattr from '../chattr'
-
-type ChattrForm = {
-  setMessage: React.Dispatch<React.SetStateAction<string>>
-  sendMessage: (
-    event: React.MouseEvent | React.KeyboardEvent | React.FormEvent
-  ) => void
-  message: string
-  loading: boolean
-}
+import type { ChattrFormProps } from '../types'
 
 export default function ChattrForm({
   setMessage,
   sendMessage,
   message,
   loading,
-}: ChattrForm) {
-  console.log('%c ChattrForm Rendered!', 'background: #DC7633; color: #fff')
+}: ChattrFormProps): React.JSX.Element {
+  if (process.env.NODE_ENV === 'development') {
+    console.log('%c ChattrForm Rendered!', 'background: #DC7633; color: #fff')
+  }
   return (
     <chattr.form
       className='z-40 flex h-16 items-center justify-between rounded-b-2xl border-t border-zinc-300 bg-zinc-200 px-2 py-2.5 dark:border-zinc-800 dark:bg-zinc-950'

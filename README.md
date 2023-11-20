@@ -10,6 +10,7 @@ A customizable chatgpt chatbot component library for React, built with tailwindc
 
 **[Installation Instructions](#installation)**<br>
 **[Configuration Instructions](#configuration)**<br>
+**[Development Mode](#development-mode)**<br>
 **[Endpoints](#endpoints)**<br>
 **[Usage for Nextjs](#usage-for-nextjs)**<br>
 **[Usage for Reactjs](#usage-for-reactjs)**<br>
@@ -68,15 +69,40 @@ Next, make sure that your `tailwind.config.ts` file includes the following:
 export default config
 ```
 
+And your `globals.css` file looks like this:
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .animation-delay-200 {
+    animation-delay: 0.15s;
+  }
+  .animation-delay-400 {
+    animation-delay: 0.3s;
+  }
+}
+
+.dot {
+  @apply mx-0.5 h-1.5 w-1.5 rounded-full bg-teal-600 dark:bg-teal-500;
+}
+```
+
 This is for the custom loader that comes shipped with the chatbot in between states of sent messages. You can customize it, or create your own.
 
 Next, you need an `OPENAI_API_KEY`. If you don't have one already, click [here](https://platform.openai.com/api-keys) to get one.
 
-Once you have your key, install `dotenv` if required and create a `.env` file in the root of your project. Insert your api key there. **In production, remember to copy this api key, verbatim, to your environment variables section.**
+Once you have your key, install `dotenv` if required and create a `.env` file in the root of your project. Insert your api key there. **In production, remember to copy your api key, to your environment variables section.**
 
 ```bash
 OPENAI_API_KEY='YOUR_OPENAI_API_KEY'
 ```
+
+# Development Mode
+
+Chattr logs pre made components to the console, showing you what gets rendered. This is for development mode only, and will not log in production. If you're using [React dev tools](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?pli=1), you can go to the components tab and click settings, and enable `Highlight updates when components render` to see what gets rendered. This is great for optimizing performance.
 
 # Endpoints
 
@@ -145,14 +171,17 @@ For quick and easy setup in Next js, you can import a ready made chatbot. Just w
 // components/chattr-example.tsx
 'use client'
 
-import { ChatBot } from 'chattr'
+import { ChattrBot } from 'chattr'
 
 export default function ChattrExample() {
   return (
-    <ChatBot
-      initialText='Hey there! Welcome to my website. Let me know if you have any questions!'
-      endPoint='/api/chatGpt' // Example api endpoint that would handle a chatgpt api POST request.
-      errorMessage='Hmmm.... It looks like something went wrong on my end, try again later!'
+    // These are the default props. If you don't need to customize these, just return <ChattrBot/>
+    <ChattrBot
+      welcomeText='Hey there! My name is Chattr, your personal assistant! Let me know if you have any questions.'
+      endPoint='/api/chatGpt'
+      errorMessage='Whoops! Looks like something went wrong. Please try again later.'
+      chattrName='Chattr'
+      userName='You'
     />
   )
 }
@@ -200,7 +229,7 @@ If you are using React, you can use it without creating a wrapper component sinc
 ```tsx
 // Your specified file
 import { Navigation, Footer } from './your-components'
-import { ChatBot } from 'chattr'
+import { ChattrBot } from 'chattr'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -208,10 +237,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Navigation />
       <main>{children}</main>
       <Footer />
-      <ChatBot
-        initialText='Hey there! Welcome to my website. Let me know if you have any questions!'
-        endPoint='https://www.example.com/api/chatGpt' // Example express endpoint that would handle a chatgpt api POST request.
-        errorMessage='Hmmm.... It looks like something went wrong on my end, try again later!'
+      <ChattrBot
+        welcomeText='Hey there! My name is Chattr, your personal assistant! Let me know if you have any questions.'
+        endPoint='/api/chatGpt'
+        errorMessage='Whoops! Looks like something went wrong. Please try again later.'
+        chattrName='Chattr'
+        userName='You'
       />
     </>
   )
@@ -220,7 +251,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
 # Customizations
 
-If you want to customize your chatbot, you can use the boilerplate component below to get started! No documentation has been made yet, although everything is documented in JSDoc! Just hover over the components and intellisense will display props that you can copy default values from and customize.
+Currently working on a customization system. For now, if you'd like to customize your chatbot, you can use the boilerplate component below to get started! No documentation has been made yet, although everything is documented in JSDoc! Just hover over the components and intellisense will display props that you can copy default values from and customize.
 
 ```tsx
 // components/chatbot.tsx
@@ -228,7 +259,7 @@ If you want to customize your chatbot, you can use the boilerplate component bel
 
 import React from 'react'
 
-import {
+import chattr, {
   useChatbot,
   ChatContainer,
   ChatHeader,
@@ -250,7 +281,7 @@ export default function ChatBot() {
   const [message, setMessage] = React.useState('')
   const [messages, setMessages] = React.useState<ChatMessage[]>([
     {
-      text: 'Hey! My name is Custom. Your personal chatbot, you can ask me anything!',
+      text: 'Hey! My name is Bob. Your personal chatbot, you can ask me anything!',
       role: 'assistant',
     },
   ])
@@ -275,7 +306,7 @@ export default function ChatBot() {
       },
     ])
 
-    const response = await fetch('YOUR_ENDPOINT', {
+    const response = await fetch('YOUR_API_ENDPOINT', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -308,24 +339,29 @@ export default function ChatBot() {
     }
   }
   return isOpen ? (
-    <ChatContainer>
-      <ChatHeader
-        chatBotName='Custom'
-        toggle={toggle}
-      />
-      <ChatFeed
-        chatBotName='Custom'
-        ref={ref}
-        messages={messages}
-        loading={loading}
-      />
-      <ChatInput
-        setMessage={setMessage}
-        sendMessage={sendMessage}
-        message={message}
-        loading={loading}
-      />
-    </ChatContainer>
+    <>
+      <chattr.div className='absolute z-20 flex h-screen w-full flex-col items-center justify-center bg-zinc-50 dark:bg-zinc-900'>
+        <chattr.p>This is a custom backdrop.</chattr.p>
+      </chattr.div>
+      <ChatContainer>
+        <ChatHeader
+          chatBotName='Bob'
+          toggle={toggle}
+        />
+        <ChatFeed
+          chatBotName='Bob'
+          ref={ref}
+          messages={messages}
+          loading={loading}
+        />
+        <ChatInput
+          setMessage={setMessage}
+          sendMessage={sendMessage}
+          message={message}
+          loading={loading}
+        />
+      </ChatContainer>
+    </>
   ) : (
     <ChatIcon toggle={toggle} />
   )

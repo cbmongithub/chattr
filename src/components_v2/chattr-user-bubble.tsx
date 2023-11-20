@@ -1,21 +1,18 @@
 import React from 'react'
 import chattr from '../chattr'
-
-type ChattrUserBubble = {
-  key?: string | number
-  userName: string | number
-  text: string
-}
+import type { ChattrUserBubbleProps } from '../types'
 
 export default function ChattrUserBubble({
   key,
   userName,
   text,
-}: ChattrUserBubble) {
-  console.log(
-    '%c ChattrUserBubble Rendered!',
-    'background: #E74C3C; color: #fff'
-  )
+}: ChattrUserBubbleProps): React.JSX.Element {
+  if (process.env.NODE_ENV === 'development') {
+    console.log(
+      '%c ChattrUserBubble Rendered!',
+      'background: #E74C3C; color: #fff'
+    )
+  }
   return (
     <chattr.div
       key={key}

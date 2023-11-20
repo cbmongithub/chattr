@@ -1,18 +1,16 @@
 import React from 'react'
 import chattr from '../chattr'
 
-interface ChatIcon {
-  toggle: () => void
-  className?: string
-}
-
 export default function ChattrOpenIcon({
   toggle,
-  className = 'fixed bottom-4 right-4 z-20 flex items-center justify-center md:flex-1',
-}: ChatIcon) {
-  console.log('%c ChattrOpenIcon Rendered!', 'background: #222; color: #fff')
+}: {
+  toggle: () => void
+}): React.JSX.Element {
+  if (process.env.NODE_ENV === 'development') {
+    console.log('%c ChattrOpenIcon Rendered!', 'background: #222; color: #fff')
+  }
   return (
-    <chattr.div className={className}>
+    <chattr.div className='fixed bottom-4 right-4 z-20 flex items-center justify-center md:flex-1'>
       <chattr.button
         onClick={toggle}
         className='group rounded-full bg-white p-3 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20'

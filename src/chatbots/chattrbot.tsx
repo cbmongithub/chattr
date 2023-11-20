@@ -1,58 +1,64 @@
 import React from 'react'
 
 import {
-  ChatContainer,
-  ChatHeader,
-  ChatFeed,
-  ChatInput,
-  ChatIcon,
-} from '../components'
+  ChattrContainer,
+  ChattrHeader,
+  ChattrScrollFeed,
+  ChattrForm,
+  ChattrOpenIcon,
+} from '../components_v2'
 
 import { useChatbot } from '../hooks'
 
-type ChatBot = {
-  initialText: string
-  endPoint: RequestInfo | URL
-  errorMessage: string
-}
-
-type ChatMessage = {
-  text: ChatBot['initialText'] | ChatBot['errorMessage'] | string
-  role: 'assistant' | 'user'
-  key?: string | number
-}
+import type { ChattrBot, ChattrMessagesProps } from '../types'
 
 /**
- * ChatBot - A pre made chatbot solution with light/dark mode tailwind css classes.
+ * ChattrBot - A pre made chatbot solution with light/dark mode tailwind css classes.
  *
- * @param initialText - Set an initial chat message to greet the user.
+ * @param welcomeText - Set a welcome message to greet the user upon opening the chat window.
+ *
+ * @default'Hey there! My name is Chattr, your personal assistant! Let me know if you have any questions.'
  *
  * @param endPoint - Your chatGPT api endpoint. @see https://www.npmjs.com/package/chattr#endpoints for details.
  *
+ * @default'/api/chatGpt'
+ *
  * @param errorMessage - The error message you want to display in the event of an error.
  *
- * @returns The rendered Chat Container component.
+ * @default'Whoops! Looks like something went wrong. Please try again later.'
+ *
+ * @param chattrName - The name of the chattrbot.
+ *
+ * @default'Chattr'
+ *
+ * @param userName - The name of the user.
+ *
+ * @default'You'
+ *
+ * @returns The entire ChattrBot component.
  */
 
-export default function ChatBot({
-  initialText,
-  endPoint,
-  errorMessage,
-}: ChatBot) {
-  const ref = React.useRef<HTMLDivElement>(null)
+export default function ChattrBot({
+  welcomeText = 'Hey there! My name is Chattr, your personal assistant! Let me know if you have any questions.',
+  endPoint = '/api/chatGpt',
+  errorMessage = 'Whoops! Looks like something went wrong. Please try again later.',
+  chattrName = 'Chattr',
+  userName = 'You',
+}: ChattrBot): React.JSX.Element {
+  const scrollRef = React.useRef<HTMLDivElement>(null)
   const { isOpen, toggle } = useChatbot()
   const [loading, setLoading] = React.useState(false)
   const [message, setMessage] = React.useState('')
-  const [messages, setMessages] = React.useState<ChatMessage[]>([
+  const [messages, setMessages] = React.useState<ChattrMessagesProps[]>([
     {
-      text: initialText,
+      text: welcomeText,
       role: 'assistant',
     },
   ])
 
   React.useEffect(() => {
-    if (ref.current) {
-      ref.current.scrollTop = ref.current.scrollHeight
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight
     }
   }, [messages])
 
@@ -103,21 +109,26 @@ export default function ChatBot({
     }
   }
   return isOpen ? (
-    <ChatContainer>
-      <ChatHeader toggle={toggle} />
-      <ChatFeed
-        ref={ref}
+    <ChattrContainer>
+      <ChattrHeader
+        chattrName={chattrName}
+        toggle={toggle}
+      />
+      <ChattrScrollFeed
         messages={messages}
         loading={loading}
+        chattrName={chattrName}
+        userName={userName}
+        ref={scrollRef}
       />
-      <ChatInput
+      <ChattrForm
         setMessage={setMessage}
         sendMessage={sendMessage}
         message={message}
         loading={loading}
       />
-    </ChatContainer>
+    </ChattrContainer>
   ) : (
-    <ChatIcon toggle={toggle} />
+    <ChattrOpenIcon toggle={toggle} />
   )
 }
