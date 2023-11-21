@@ -6,6 +6,7 @@ import img from './img'
 import input from './input'
 import p from './p'
 import path from './path'
+import span from './span'
 import svg from './svg'
 
 const chattr = {
@@ -17,6 +18,7 @@ const chattr = {
   input,
   p,
   path,
+  span,
   svg,
 }
 
