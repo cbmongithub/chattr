@@ -6,9 +6,9 @@ import {
   ChatFeed,
   ChatInput,
   ChatIcon,
-} from '../components'
+} from '../components/default'
 
-import { useChatbot } from '../hooks'
+import { useChattr } from '../hooks'
 
 type ChatBot = {
   initialText: string
@@ -40,7 +40,7 @@ export default function ChatBot({
   errorMessage,
 }: ChatBot) {
   const ref = React.useRef<HTMLDivElement>(null)
-  const { isOpen, toggle } = useChatbot()
+  const { isOpen, toggle } = useChattr()
   const [loading, setLoading] = React.useState(false)
   const [message, setMessage] = React.useState('')
   const [messages, setMessages] = React.useState<ChatMessage[]>([

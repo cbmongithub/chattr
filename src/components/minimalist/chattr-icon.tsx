@@ -1,17 +1,16 @@
 import React from 'react'
 
 export default function ChattrIcon({ toggle }: { toggle: () => void }) {
-  console.log('%c Chat Icon Rendered!', 'background: #1cc2a4; color: #000000')
   return (
     <div className='fixed bottom-4 right-4 z-20 flex items-center justify-center md:flex-1'>
       <button
         onClick={toggle}
-        className='group rounded-full bg-white p-3 shadow shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-white/5 dark:hover:ring-white/10'
+        className='ring-chattrBlack/5 dark:bg-chattrBlack bg-chattrWhite shadow-chattrText/5 dark:ring-chattrWhite/5 dark:hover:ring-chattrWhite/10 group rounded-full p-3 shadow ring-1'
         type='button'
         role='button'
         aria-label='Toggle Chatbot'>
         <svg
-          className='mb-1 h-7 w-7 stroke-white text-zinc-900 dark:text-violet-500'
+          className='stroke-chattrWhite text-chattrText dark:text-chattrPrimaryDark mb-1 h-6 w-6'
           stroke='currentColor'
           fill='currentColor'
           strokeWidth='0'

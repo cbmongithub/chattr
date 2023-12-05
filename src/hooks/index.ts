@@ -1,1 +1,1 @@
-export { default as useChatbot } from './use-chatbot'
+export { default as useChattr } from './use-chattr'

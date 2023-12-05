@@ -1,18 +1,18 @@
 import React from 'react'
 
-export default function Header({
-  chattrName,
+export default function ChattrHeader({
+  chattrBotName,
   role,
   toggle,
 }: {
-  chattrName: string
+  chattrBotName: string
   role: string
   toggle: () => void
 }) {
   return (
     <div className='flex flex-row items-center space-y-1.5 p-4'>
       <div className='flex items-center space-x-4'>
-        <span className='relative flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0'>
+        <span className='border-chattrGray dark:border-chattrGrayDark relative flex h-10 w-10 flex-none items-center justify-center rounded-full border dark:border'>
           <img
             alt='Chatbot Image'
             width={28}
@@ -22,13 +22,17 @@ export default function Header({
           />
         </span>
         <div>
-          <p className='text-sm font-medium leading-none'>{chattrName}</p>
-          <p className='text-sm font-light text-zinc-100/60'>{role}</p>
+          <p className='text-chattrText dark:text-chattrTextDark text-sm font-medium leading-none'>
+            {chattrBotName}
+          </p>
+          <p className='text-chattrSecondary dark:text-chattrSecondaryDark text-sm font-light'>
+            {role}
+          </p>
         </div>
       </div>
       <button
         onClick={toggle}
-        className='ml-auto inline-flex h-5 w-5 items-start justify-end text-sm font-medium hover:text-zinc-100/90'>
+        className='ml-auto inline-flex h-5 w-5 items-start justify-end text-sm font-medium hover:opacity-60'>
         <svg
           stroke='currentColor'
           fill='currentColor'

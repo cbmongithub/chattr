@@ -5,7 +5,7 @@ import React from 'react'
  * @default false
  */
 
-export default function useChatbot(): {
+export default function useChattr(): {
   isOpen: boolean
   toggle: () => void
 } {

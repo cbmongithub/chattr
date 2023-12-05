@@ -1,66 +1,51 @@
 import React from 'react'
 
+import { useChattr } from '../hooks'
+
 import {
   ChattrContainer,
-  ChattrHeader,
-  ChattrScrollFeed,
+  ChattrFeed,
   ChattrForm,
-  ChattrOpenIcon,
-} from '../components_v2'
+  ChattrHeader,
+  ChattrIcon,
+} from '../components/minimalist'
 
-import { useChatbot } from '../hooks'
-
-import type { ChattrBot, ChattrMessagesProps } from '../types'
+type ChattrMessage = {
+  role: 'user' | 'assistant'
+  key?: string
+  content?: string
+  ui: string
+  data?: {
+    temperature: string
+    celcius: string
+    location: string
+    description: string
+    humidity: string
+    wind: string
+    clouds: string
+    state: string
+    url: string
+  }
+}
 
 /**
- * ChattrBot - A pre made chatbot solution with light/dark mode tailwind css classes.
+ * Chattrbot - A pre made chatbot solution with light/dark mode tailwind css classes.
  *
- * @param welcomeText - Set a welcome message to greet the user upon opening the chat window.
- *
- * @default'Hey there! My name is Chattr, your personal assistant! Let me know if you have any questions.'
- *
- * @param endPoint - Your chatGPT api endpoint. @see https://www.npmjs.com/package/chattr#endpoints for details.
- *
- * @default'/api/chatGpt'
- *
- * @param errorMessage - The error message you want to display in the event of an error.
- *
- * @default'Whoops! Looks like something went wrong. Please try again later.'
- *
- * @param chattrName - The name of the chattrbot.
- *
- * @default'Chattr'
- *
- * @param userName - The name of the user.
- *
- * @default'You'
- *
- * @returns The entire ChattrBot component.
+ * @returns The entire Chattrbot component.
  */
 
-export default function ChattrBot({
-  welcomeText = 'Hey there! My name is Chattr, your personal assistant! Let me know if you have any questions.',
-  endPoint = '/api/chatGpt',
-  errorMessage = 'Whoops! Looks like something went wrong. Please try again later.',
-  chattrName = 'Chattr',
-  userName = 'You',
-}: ChattrBot): React.JSX.Element {
-  const scrollRef = React.useRef<HTMLDivElement>(null)
-  const { isOpen, toggle } = useChatbot()
+export default function Chattrbot() {
+  const { isOpen, toggle } = useChattr()
+  const chattrBotName = 'Chattrbot'
   const [loading, setLoading] = React.useState(false)
   const [message, setMessage] = React.useState('')
-  const [messages, setMessages] = React.useState<ChattrMessagesProps[]>([
+  const [messages, setMessages] = React.useState<ChattrMessage[]>([
     {
-      text: welcomeText,
+      ui: 'default',
+      content: `Hey! Thanks for visiting. I'm ${chattrBotName}, you can ask me anything!`,
       role: 'assistant',
     },
   ])
-
-  React.useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight
-    }
-  }, [messages])
 
   async function sendMessage(
     event: React.MouseEvent | React.KeyboardEvent | React.FormEvent
@@ -71,64 +56,79 @@ export default function ChattrBot({
     setMessages(prev => [
       ...prev,
       {
-        text: message,
+        ui: 'default',
+        content: message,
         role: 'user',
       },
     ])
-
-    const response = await fetch(endPoint, {
+    const response = await fetch('/api/chat-gpt', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         prompt: message,
+        chattrBotName: chattrBotName,
+        chattrBotHistory: messages,
       }),
     })
 
-    let answer = await response.json()
+    let result = await response.json()
 
-    if (answer.data.choices) {
-      setLoading(false)
-      setMessages(prev => [
-        ...prev,
-        {
-          text: answer.data.choices[0].message.content,
-          role: 'assistant',
-        },
-      ])
+    if (result.ok) {
+      if (result.content.text) {
+        setLoading(false)
+        setMessages(prev => [
+          ...prev,
+          {
+            ui: 'default',
+            content: result.content.text,
+            role: 'assistant',
+          },
+        ])
+      } else if (result.content.function_response) {
+        setLoading(false)
+        setMessages(prev => [
+          ...prev,
+          {
+            ui: result.ui,
+            data: result.content.function_response,
+            role: 'assistant',
+          },
+        ])
+      }
     } else {
       setLoading(false)
       setMessages(prev => [
         ...prev,
         {
-          text: errorMessage,
+          ui: 'default',
+          content: result.error,
           role: 'assistant',
         },
       ])
     }
   }
+
   return isOpen ? (
     <ChattrContainer>
       <ChattrHeader
-        chattrName={chattrName}
+        chattrBotName={chattrBotName}
+        role='Assistant'
         toggle={toggle}
       />
-      <ChattrScrollFeed
+      <ChattrFeed
         messages={messages}
         loading={loading}
-        chattrName={chattrName}
-        userName={userName}
-        ref={scrollRef}
       />
       <ChattrForm
+        message={message}
         setMessage={setMessage}
         sendMessage={sendMessage}
-        message={message}
         loading={loading}
       />
     </ChattrContainer>
   ) : (
-    <ChattrOpenIcon toggle={toggle} />
+    <ChattrIcon toggle={toggle} />
   )
 }

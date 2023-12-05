@@ -1,20 +1,27 @@
 import React from 'react'
 
-import type { ChattrFormProps } from '../types'
+type ChattrForm = {
+  setMessage: React.Dispatch<React.SetStateAction<string>>
+  sendMessage: (
+    event: React.MouseEvent | React.KeyboardEvent | React.FormEvent
+  ) => void
+  message: string
+  loading: boolean
+}
 
 export default function ChattrForm({
   setMessage,
   sendMessage,
   message,
   loading,
-}: ChattrFormProps) {
+}: ChattrForm) {
   return (
     <div className='absolute bottom-0 flex h-16 w-full items-center p-4'>
       <form
         onSubmit={event => sendMessage(event)}
         className='flex w-full items-center justify-between space-x-2'>
         <input
-          className='flex h-9 w-full flex-auto rounded-md border border-zinc-100/20 bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:bg-transparent focus:border-violet-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-violet-600 disabled:cursor-not-allowed disabled:opacity-50'
+          className='border-chattrGray dark:border-chattrGrayDark rounded-chattrRoundedSmall text-chattrText focus:border-chattrPrimary focus-visible:ring-chattrPrimary dark:text-chattrTextDark flex h-9 w-full flex-auto border bg-transparent px-2 py-1 text-sm font-light shadow-sm transition-colors placeholder:bg-transparent focus-visible:outline-none focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50'
           type='text'
           required
           placeholder='Ask a question...'
@@ -22,7 +29,7 @@ export default function ChattrForm({
           onChange={({ target: { value } }) => setMessage(value)}
         />
         <button
-          className='hover:bg-primary/90 inline-flex h-9 w-9 items-center justify-center whitespace-nowrap rounded-md bg-zinc-900 text-sm font-medium text-zinc-100 shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-violet-600 disabled:pointer-events-none disabled:opacity-50'
+          className='dark:bg-chattrGrayDark rounded-chattrRoundedSmall bg-chattrBackgroundMuted text-chattrText focus-visible:ring-chattrPrimary dark:text-chattrTextDark inline-flex h-9 w-9 items-center justify-center whitespace-nowrap text-sm font-medium shadow transition-colors hover:opacity-80 focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50'
           type='submit'
           disabled={loading}>
           <svg

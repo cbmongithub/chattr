@@ -1,3 +1,8 @@
+export { default as ChattrAssistantMessage } from './chattr-assistant-message'
+export { default as ChattrUserMessage } from './chattr-user-message'
+export { default as ChattrAssistantImage } from './chattr-assistant-image'
+export { default as ChattrAssistantWeather } from './chattr-assistant-weather'
+export { default as ChattrAssistantVideo } from './chattr-assistant-video'
 export { default as ChattrContainer } from './chattr-container'
 export { default as ChattrFeed } from './chattr-feed'
 export { default as ChattrForm } from './chattr-form'

@@ -1,14 +1,31 @@
 import React from 'react'
 
-import { ChattrMessagesProps } from '../types'
 import ChattrMessages from './chattr-messages'
 import ChattrLoader from './chattr-loader'
+
+type ChattrMessage = {
+  role: 'user' | 'assistant'
+  key?: string
+  content?: string
+  ui: string
+  data?: {
+    temperature: string
+    celcius: string
+    location: string
+    description: string
+    humidity: string
+    wind: string
+    clouds: string
+    state: string
+    url: string
+  }
+}
 
 function ChattrFeed({
   messages,
   loading,
 }: {
-  messages: ChattrMessagesProps[]
+  messages: ChattrMessage[]
   loading: boolean
 }) {
   const ref = React.useRef<HTMLDivElement>(null)
@@ -19,15 +36,13 @@ function ChattrFeed({
     }
   }, [messages])
 
-  console.log('%c Chat Feed Rendered!', 'background: #cf19ab; color: #ffffff')
-
   return (
     <div
       ref={ref}
       className='max-h-[245px] min-h-[245px] flex-auto overflow-y-scroll'>
       {messages.map((message, i) => (
         <ChattrMessages
-          key={i}
+          key={`${message.role}_message_${i}`}
           message={message}
         />
       ))}
