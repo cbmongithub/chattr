@@ -1,7 +1,0 @@
-export { default as ChattrContainer } from './chattr-container'
-export { default as ChattrFeed } from './chattr-feed'
-export { default as ChattrForm } from './chattr-form'
-export { default as ChattrHeader } from './chattr-header'
-export { default as ChattrIcon } from './chattr-icon'
-export { default as ChattrLoader } from './chattr-loader'
-export { default as ChattrMessages } from './chattr-messages'
