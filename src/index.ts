@@ -5,7 +5,6 @@
  * Let's connect on Github (https://github.com/christianbmartinez) or Twitter (https://www.twitter.com/_coderchris)!
  */
 
-export * from './chatbots'
 export * from './components'
 export * from './hooks'
 export * from './types'
