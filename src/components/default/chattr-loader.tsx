@@ -7,11 +7,11 @@ export default function ChattrLoader({
 }) {
   return (
     <div className='mb-3 flex justify-start'>
-      <div className='rounded-[0.85rem] border border-teal-600 px-0.5 py-1.5 dark:border-teal-500'>
+      <div className='rounded-chattrRoundedMedium bg-chattrPrimary dark:bg-chattrPrimaryDark px-0.5 py-1.5'>
         <div className='flex items-center justify-center px-3 py-2'>
-          <div className='dot animate-loader'></div>
-          <div className='dot animation-delay-200 animate-loader'></div>
-          <div className='dot animation-delay-400 animate-loader'></div>
+          <div className='chattrDot animate-chattrLoader'></div>
+          <div className='chattrDot animation-delay-200 animate-chattrLoader'></div>
+          <div className='chattrDot animation-delay-400 animate-chattrLoader'></div>
         </div>
       </div>
       <p className='flex items-center pl-2 text-sm font-semibold tracking-wide text-zinc-900 dark:text-zinc-100'>

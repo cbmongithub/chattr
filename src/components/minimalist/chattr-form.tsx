@@ -24,6 +24,8 @@ export default function ChattrForm({
           className='border-chattrGray dark:border-chattrGrayDark rounded-chattrRoundedSmall text-chattrText focus:border-chattrPrimary focus-visible:ring-chattrPrimary dark:text-chattrTextDark flex h-9 w-full flex-auto border bg-transparent px-2 py-1 text-sm font-light shadow-sm transition-colors placeholder:bg-transparent focus-visible:outline-none focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50'
           type='text'
           required
+          autoComplete='off'
+          autoCorrect='off'
           placeholder='Ask a question...'
           value={message}
           onChange={({ target: { value } }) => setMessage(value)}

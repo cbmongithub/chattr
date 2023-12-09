@@ -6,7 +6,7 @@ import ChattrContainer from './chattr-container'
 import ChattrFeed from './chattr-feed'
 import ChattrForm from './chattr-form'
 import ChattrHeader from './chattr-header'
-import ChattrIcon from './chattr-icon'
+import ChattrOpenButton from './chattr-open-button'
 
 type ChattrMessages = {
   role: 'user' | 'assistant'
@@ -15,15 +15,15 @@ type ChattrMessages = {
 }
 
 /**
- * Chattrbot - A pre made chatbot solution with light/dark mode tailwind css classes.
+ * Chattrbot - A pre made chatbot solution with light/dark mode tailwind css classes. Uses basic chat functionality with chatgpt models.
  *
  * @returns The entire Default Chattrbot component.
  */
 
 export default function Chattrbot() {
   const { isOpen, toggle } = useChattr()
-  const chattrBotName = 'Bot'
-  const userName = 'User'
+  const chattrBotName = 'Bob'
+  const userName = 'Visitor'
   const [loading, setLoading] = React.useState(false)
   const [message, setMessage] = React.useState('')
   const [messages, setMessages] = React.useState<ChattrMessages[]>([
@@ -104,6 +104,6 @@ export default function Chattrbot() {
       />
     </ChattrContainer>
   ) : (
-    <ChattrIcon toggle={toggle} />
+    <ChattrOpenButton toggle={toggle} />
   )
 }

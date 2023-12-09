@@ -15,11 +15,11 @@ export default function ChattrUserMessage({
     <div
       key={key}
       className='mb-3 flex justify-end'>
-      <p className='flex items-center pr-2 text-sm font-semibold tracking-wide text-zinc-800 dark:text-zinc-100'>
+      <p className='text-chattrText dark:text-chattrTextDark flex items-center pr-2 text-sm font-semibold tracking-wide'>
         {userName}
       </p>
-      <div className='rounded-2xl bg-zinc-100 px-3 py-2 dark:bg-zinc-800'>
-        <p className='max-w-[160px] break-words text-sm font-light text-zinc-800 dark:text-zinc-300'>
+      <div className='rounded-chattrRoundedLarge bg-chattrBackgroundMuted dark:bg-chattrGrayDark px-3 py-2'>
+        <p className='text-chattrText dark:text-chattrTextDark max-w-[160px] break-words text-sm font-light'>
           {content}
         </p>
       </div>
