@@ -6,7 +6,7 @@ import ChattrContainer from './chattr-container'
 import ChattrFeed from './chattr-feed'
 import ChattrForm from './chattr-form'
 import ChattrHeader from './chattr-header'
-import ChattrIcon from './chattr-icon'
+import ChattrOpenButton from './chattr-open-button'
 
 type ChattrMessage = {
   role: 'user' | 'assistant'
@@ -27,7 +27,7 @@ type ChattrMessage = {
 }
 
 /**
- * Chattrbot - A pre made chatbot solution with light/dark mode tailwind css classes.
+ * Chattrbot - A pre made chatbot solution with light/dark mode tailwind css classes. Uses function calling features.
  *
  * @returns The entire Minimalist Chattrbot component.
  */
@@ -59,7 +59,7 @@ export default function Chattrbot() {
         role: 'user',
       },
     ])
-    const response = await fetch('/api/chat-gpt', {
+    const response = await fetch('/api/function-calling', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -127,6 +127,6 @@ export default function Chattrbot() {
       />
     </ChattrContainer>
   ) : (
-    <ChattrIcon toggle={toggle} />
+    <ChattrOpenButton toggle={toggle} />
   )
 }

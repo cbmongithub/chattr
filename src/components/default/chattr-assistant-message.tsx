@@ -15,12 +15,12 @@ export default function ChattrAssistantMessage({
     <div
       key={key}
       className='mb-3 flex justify-start'>
-      <div className='rounded-2xl border border-teal-600 px-3 py-2 dark:border-teal-500'>
-        <p className='max-w-[160px] break-words text-sm font-light text-teal-600 dark:text-teal-500'>
+      <div className='rounded-chattrRoundedLarge bg-chattrPrimary dark:bg-chattrPrimaryDark px-3 py-2'>
+        <p className='text-chattrTextDark max-w-[160px] break-words text-sm font-light'>
           {content}
         </p>
       </div>
-      <p className='flex items-center pl-2 text-sm font-semibold tracking-normal text-zinc-900 dark:text-zinc-100'>
+      <p className='text-chattrText dark:text-chattrTextDark flex items-center pl-2 text-sm font-semibold tracking-normal'>
         {chattrBotName}
       </p>
     </div>

@@ -10,7 +10,6 @@ A customizable chatgpt chatbot component library for React, built with tailwindc
 
 **[Installation Instructions](#installation)**<br>
 **[Configuration Instructions](#configuration)**<br>
-**[Development Mode](#development-mode)**<br>
 **[Endpoints](#endpoints)**<br>
 **[Usage for Nextjs](#usage-for-nextjs)**<br>
 **[Usage for Reactjs](#usage-for-reactjs)**<br>
@@ -48,15 +47,38 @@ Next, make sure that your `tailwind.config.ts` file includes the following:
 // tailwind.config.ts
 {
   //... Other configs ...,
-  theme: {
+theme: {
     extend: {
+      colors: {
+        chattrWhite: 'rgb(255 255 255 / 1)', // white
+        chattrBlack: 'rgb(24 24 27 / 1)', // zinc-900
+        chattrPitchBlack: 'rgb(9 9 11 / 1)', // zinc-950
+        chattrPrimary: 'rgb(139 92 246 / 1)', // violet-500
+        chattrPrimaryDark: 'rgb(124 58 237 / 1)', // violet-600
+        chattrSecondary: 'rgb(113 113 122 / 0.8)', // zinc-500/80
+        chattrSecondaryDark: 'rgb(244 244 245 / 0.6)', //zinc-100/60
+        chattrGray: 'rgb(212 212 216 / 0.9)', // zinc-300/90
+        chattrGrayDark: 'rgb(244 244 245 / 0.15)', //zinc-100/15
+        chattrText: 'rgb(39 39 42 / 1)', // zinc-800
+        chattrTextDark: 'rgb(244 244 245 / 1)', // zinc-100
+        chattrBackgroundMuted: 'rgb(228 228 231 / 0.7)', //zinc-200/70
+      },
+      borderRadius: {
+        chattrRoundedSmall: '0.5rem',
+        chattrRoundedMedium: '0.85rem',
+        chattrRoundedLarge: '1rem',
+      },
       animation: {
-        loader: 'loader 0.5s infinite alternate',
+        chattrLoader: 'chattrLoader 0.5s infinite alternate',
       },
       keyframes: {
-        loader: {
+        chattrLoader: {
+          from: {
+            opacity: '1',
+            transform: 'translate3d(0, 0, 0)',
+          },
           to: {
-            opacity: '0.5',
+            opacity: '0.25',
             transform: 'translate3d(0, -0.2rem, 0)',
           },
         },
@@ -76,6 +98,7 @@ And your `globals.css` file looks like this:
 @tailwind components;
 @tailwind utilities;
 
+/* Animation styles for the ChattrLoader component */
 @layer utilities {
   .animation-delay-200 {
     animation-delay: 0.15s;
@@ -84,9 +107,9 @@ And your `globals.css` file looks like this:
     animation-delay: 0.3s;
   }
 }
-
-.dot {
-  @apply mx-0.5 h-1.5 w-1.5 rounded-full bg-teal-600 dark:bg-teal-500;
+/* Dot style for the ChattrLoader component */
+.chattrDot {
+  @apply bg-chattrWhite mx-0.5 h-[6px] w-[6px] rounded-full;
 }
 ```
 
@@ -99,10 +122,6 @@ Once you have your key, install `dotenv` if required and create a `.env` file in
 ```bash
 OPENAI_API_KEY='YOUR_OPENAI_API_KEY'
 ```
-
-# Development Mode
-
-Chattr logs pre made components to the console, showing you what gets rendered. This is for development mode only, and will not log in production. If you're using [React dev tools](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?pli=1), you can go to the components tab and click settings, and enable `Highlight updates when components render` to see what gets rendered. This is great for optimizing performance.
 
 # Endpoints
 

@@ -20,7 +20,6 @@ export default function ChattrAssistantImage({
       />
     )
   }
-
   return (
     <div
       key={key}
