@@ -1,5 +1,7 @@
 import React from 'react'
 
+import ChattrCloseIcon from './chattr-close-icon'
+
 export default function ChattrHeader({
   chattrBotName,
   role,
@@ -33,17 +35,7 @@ export default function ChattrHeader({
       <button
         onClick={toggle}
         className='ml-auto inline-flex h-5 w-5 items-start justify-end text-sm font-medium hover:opacity-60'>
-        <svg
-          stroke='currentColor'
-          fill='currentColor'
-          strokeWidth='0'
-          version='1.1'
-          viewBox='0 0 21 21'
-          height='1em'
-          width='1em'
-          xmlns='http://www.w3.org/2000/svg'>
-          <path d='M9.207 8.5l6.646 6.646-0.707 0.707-6.646-6.646-6.646 6.646-0.707-0.707 6.646-6.646-6.647-6.646 0.707-0.707 6.647 6.646 6.646-6.646 0.707 0.707-6.646 6.646z'></path>
-        </svg>
+        <ChattrCloseIcon />
       </button>
     </div>
   )

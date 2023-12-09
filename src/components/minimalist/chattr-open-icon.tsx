@@ -3,7 +3,7 @@ import React from 'react'
 export default function ChattrOpenIcon() {
   return (
     <svg
-      className='h-7 w-7 stroke-chattrWhite text-chattrBlack dark:text-chattrPrimary'
+      className='stroke-chattrWhite text-chattrBlack dark:text-chattrPrimary h-7 w-7'
       stroke='currentColor'
       fill='currentColor'
       strokeWidth='0'
