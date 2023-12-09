@@ -59,7 +59,7 @@ export default function Chattrbot() {
         role: 'user',
       },
     ])
-    const response = await fetch('/api/chat-gpt', {
+    const response = await fetch('/api/function-calling', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
