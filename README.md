@@ -4,7 +4,7 @@
 
 # chattr
 
-A customizable chatgpt chatbot component library for Nextjs, built with React, Tailwindcss, and Typescript.
+A customizable chatgpt chatbot component library for Nextjs. Built with React, Tailwindcss, OpenAI, and Typescript.
 
 ### Table of Contents
 
