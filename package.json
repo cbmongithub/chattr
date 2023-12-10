@@ -1,7 +1,7 @@
 {
   "name": "chattr",
   "version": "0.4.1",
-  "description": "A chatgpt chatbot component library for react and nextjs.",
+  "description": "A chatgpt chatbot component library for nextjs.",
   "scripts": {
     "build": "rollup -c && npm publish",
     "dev": "rollup -c"
