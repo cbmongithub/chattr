@@ -109,6 +109,7 @@ And your `globals.css` file looks like this:
     animation-delay: 0.3s;
   }
 }
+
 /* Dot styles for the ChattrLoader components */
 .chattrDotDefault {
   @apply bg-chattrWhite mx-0.5 h-[6px] w-[6px] rounded-full;
@@ -119,7 +120,7 @@ And your `globals.css` file looks like this:
 }
 ```
 
-This is for the overall chattr styles, and a custom loader that comes shipped with the chatbot in between states of sent messages. You can customize it, or create your own! You can view the repo [here](https://github.com/christianbmartinez/chattr)
+This is for the overall chattr styles, and a custom loader that comes shipped with the chatbot in between states of sent messages. You can customize it, or create your own!
 
 Next, you need an `OPENAI_API_KEY`. If you don't have one already, click [here](https://platform.openai.com/api-keys) to get one.
 
@@ -133,7 +134,9 @@ REPLICATE_API_TOKEN='YOUR_REPLICATE_TOKEN'
 
 # Themes
 
-Chattr currently has two themes- `Default` and `Minimalist`. The default theme was styled by me, and the minimalist theme was styled originally by [shadcn](https://ui.shadcn.com/themes) and has been highly customized to be used as a chattrbot. Shadcn himself even reposted the tweet of his chat component being used in chattr: [tweet](https://twitter.com/_coderchris/status/1729318382355587335) To see how the themes work, please visit the chattr [repo](https://github.com/christianbmartinez/chattr)
+Chattr currently has two themes- `Default` and `Minimalist`. The default theme was styled by me, and the minimalist theme was styled originally by [shadcn](https://ui.shadcn.com/themes) and has been highly customized to be used as a chattrbot. Shadcn himself even [reposted](https://twitter.com/_coderchris/status/1729318382355587335) the tweet of his chat component being used in chattr!
+
+To see how the themes work, please visit the chattr [repo](https://github.com/christianbmartinez/chattr)
 
 # Endpoints
 
@@ -223,18 +226,21 @@ export async function POST(req: NextRequest) {
 }
 ```
 
-You can view the default chattrbot [here](https://github.com/christianbmartinez/chattr/blob/main/src/components/default/chattrbot.tsx) to understand how it works with the `app/api/chat-gpt/route.ts` route.
+You can view the default chattrbot and components [here](https://github.com/christianbmartinez/chattr/blob/main/src/components/default) to understand how it works with the `app/api/chat-gpt/route.ts` route.
 
 # Function calling
 
-If you're using the `Minimalist.Chattrbot`, the route is a lot different in that it uses function calling. A solution that I came up with is using a ui key value pair within the response object to tell the client what type of component to render. Here's how it works in the [component](https://github.com/christianbmartinez/chattr/blob/main/src/components/minimalist/chattr-messages.tsx).
+If you're using the `Minimalist.Chattrbot`, the route is a lot different in that it uses open ai's function calling feature.
 
-You can copy and paste the following as a starting point to `app/api/function-calling/route.ts`
+A solution for the ui that I came up with is using a key value pair within the response object to tell the client what type of component to render. You can see it in action [here](https://github.com/christianbmartinez/chattr/blob/main/src/components/minimalist/chattr-messages.tsx).
+
+You can copy and paste the following as a starting point to `app/api/function-calling/route.ts`. Make sure to install `replicate` if you'd like to use the create_video function in this example.
 
 ```typescript
 // app/api/function-calling/route.ts
 import { NextRequest, NextResponse } from 'next/server'
-import { get_current_weather, create_image, create_video } from '@/helpers' // Your functions
+
+import { get_current_weather, create_image, create_video } from 'chattr'
 
 export async function POST(req: NextRequest) {
   try {
@@ -486,7 +492,7 @@ export default function RootLayout({
 
 # Customizations
 
-If you need more control over the styles, you can view the chattr repo [here](https://github.com/christianbmartinez/chattr). Copy existing code, create new bots, expand on existing bots, etc.
+If you need more control over the styles, you can view the chattr repo [here](https://github.com/christianbmartinez/chattr). Copy existing code, create new bots, expand on existing bots, etc. The code is open source and yours to use!
 
 # License
 
@@ -498,7 +504,7 @@ If you would like to contribute, feel free to open a pull request! Experienced l
 
 # Future Development
 
-Currently in development is a create-chattr-app that will give the user a boilerplate with routes and a basic page included to get started using chattr in Nextjs! More themes are also coming, such as full screen layout instead of a widget. Things are always changing. If you have any ideas, please let me know about them!
+Currently in development is a create-chattr-app that will download a boilerplate with routes and everything included to get started using chattr in Nextjs! More themes are also coming, such as full screen layout instead of a widget. If you have any ideas, please [let me know](mailto:hello@christianbmartinez.com?subject=Chattr%20%Suggestion) about them!
 
 # Author
 
