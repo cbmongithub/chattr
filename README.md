@@ -13,8 +13,7 @@ A customizable chatgpt chatbot component library for Nextjs, built with React, T
 **[Themes](#themes)**<br>
 **[Endpoints](#endpoints)**<br>
 **[Function Calling](#function-calling)**<br>
-**[Usage for Nextjs](#usage-for-nextjs)**<br>
-**[Usage for Reactjs](#usage-for-reactjs)**<br>
+**[Usage](#usage)**<br>
 **[Customizations](#customizations)**<br>
 **[License](#license)**<br>
 **[Contributing](#contributing)**<br>
@@ -234,7 +233,7 @@ If you're using the `Minimalist.Chattrbot`, the route is a lot different in that
 
 A solution for the ui that I came up with is using a key value pair within the response object to tell the client what type of component to render. You can see it in action [here](https://github.com/christianbmartinez/chattr/blob/main/src/components/minimalist/chattr-messages.tsx).
 
-You can copy and paste the following as a starting point to `app/api/function-calling/route.ts`. Make sure to install `replicate` if you'd like to use the create_video function in this example.
+You can copy and paste the following as a starting point to `app/api/function-calling/route.ts`. Make sure to install `replicate` if you'd like to use the `create_video` function in this example.
 
 ```typescript
 // app/api/function-calling/route.ts
@@ -434,11 +433,11 @@ export async function POST(req: NextRequest) {
 }
 ```
 
-You can view the minimalist chattrbot [here](https://github.com/christianbmartinez/chattr/blob/main/src/components/minimalist/chattrbot.tsx) to understand how it works with the `app/api/function-calling/route.ts` route.
+You can view the minimalist chattrbot [here](https://github.com/christianbmartinez/chattr/blob/main/src/components/minimalist) to understand how it works with the `app/api/function-calling/route.ts` route.
 
 It's worth mentioning that you should protect your routes with some type of authentication, or at the very least, use a rate limiter. `@upstash/ratelimit @upstash/redis` is a great option. You can view the package [here](https://www.npmjs.com/package/@upstash/ratelimit).
 
-# Usage for Nextjs
+# Usage
 
 After you have setup the route you need, you can import a chattrbot! Just wrap it in a separate component with the `use client` directive:
 
