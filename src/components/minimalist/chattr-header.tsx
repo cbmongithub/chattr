@@ -14,7 +14,7 @@ export default function ChattrHeader({
   return (
     <div className='flex flex-row items-center space-y-1.5 p-4'>
       <div className='flex items-center space-x-4'>
-        <span className='border-chattrGray dark:border-chattrGrayDark relative flex h-10 w-10 flex-none items-center justify-center rounded-full border dark:border'>
+        <span className='relative flex h-10 w-10 flex-none items-center justify-center rounded-full border border-chattrGray dark:border dark:border-chattrGrayDark'>
           <img
             alt='Chatbot Image'
             width={28}
@@ -24,10 +24,10 @@ export default function ChattrHeader({
           />
         </span>
         <div>
-          <p className='text-chattrText dark:text-chattrTextDark text-sm font-medium leading-none'>
+          <p className='text-sm font-medium leading-none text-chattrText dark:text-chattrTextDark'>
             {chattrBotName}
           </p>
-          <p className='text-chattrSecondary dark:text-chattrSecondaryDark text-sm font-light'>
+          <p className='text-sm font-light text-chattrSecondary dark:text-chattrSecondaryDark'>
             {role}
           </p>
         </div>

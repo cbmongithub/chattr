@@ -37,17 +37,17 @@ export default function ChattrAssistantWeather({
     <div
       key={key}
       className='flex justify-end'>
-      <div className='dark:bg-chattrGrayDark rounded-chattrRoundedLarge bg-chattrBackgroundMuted w-full px-3 py-2 shadow'>
-        <p className='text-chattrText dark:text-chattrTextDark break-words text-sm font-light'>
+      <div className='w-full rounded-chattrRoundedLarge bg-chattrBackgroundMuted px-3 py-2 shadow dark:bg-chattrGrayDark'>
+        <p className='break-words text-sm font-light text-chattrText dark:text-chattrTextDark'>
           Here&apos;s the most recent weather data I found for {data.location}:
         </p>
 
-        <div className='rounded-chattrRoundedLarge bg-chattrPrimary dark:bg-chattrPrimaryDark mb-2 mt-3 flex w-full flex-col p-4'>
+        <div className='mb-2 mt-3 flex w-full flex-col rounded-chattrRoundedLarge bg-chattrPrimary p-4 dark:bg-chattrPrimaryDark'>
           <div className='text-center'>
-            <p className='text-chattrWhite text-xl font-bold'>
+            <p className='text-xl font-bold text-chattrWhite'>
               {data.location}, {data.state}
             </p>
-            <p className='text-chattrBackgroundMuted text-sm font-light'>
+            <p className='text-sm font-light text-chattrBackgroundMuted'>
               {today}
             </p>
           </div>
@@ -61,27 +61,27 @@ export default function ChattrAssistantWeather({
             />
           </div>
           <div className='flex flex-col items-center justify-center'>
-            <p className='text-chattrWhite text-4xl font-bold'>
+            <p className='text-4xl font-bold text-chattrWhite'>
               {data.temperature}
             </p>
-            <p className='text-chattrGray mt-2 text-sm font-light'>
+            <p className='mt-2 text-sm font-light text-chattrGray'>
               {data.celcius}
             </p>
           </div>
           <div className='mt-6 flex flex-row justify-between'>
             <div className='flex flex-col items-center'>
-              <p className='text-chattrWhite text-sm font-semibold'>Wind</p>
-              <p className='text-chattrGray text-sm font-light'>{data.wind}</p>
+              <p className='text-sm font-semibold text-chattrWhite'>Wind</p>
+              <p className='text-sm font-light text-chattrGray'>{data.wind}</p>
             </div>
             <div className='flex flex-col items-center'>
-              <p className='text-chattrWhite text-sm font-semibold'>Humidity</p>
-              <p className='text-chattrGray text-sm font-light'>
+              <p className='text-sm font-semibold text-chattrWhite'>Humidity</p>
+              <p className='text-sm font-light text-chattrGray'>
                 {data.humidity}
               </p>
             </div>
             <div className='flex flex-col items-center'>
-              <p className='text-chattrWhite text-sm font-semibold'>Clouds</p>
-              <p className='text-chattrGray text-sm font-light'>
+              <p className='text-sm font-semibold text-chattrWhite'>Clouds</p>
+              <p className='text-sm font-light text-chattrGray'>
                 {data.clouds}
               </p>
             </div>

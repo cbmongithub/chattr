@@ -8,7 +8,7 @@ import ChattrForm from './chattr-form'
 import ChattrHeader from './chattr-header'
 import ChattrOpenButton from './chattr-open-button'
 
-type ChattrMessages = {
+type ChattrMessage = {
   role: 'user' | 'assistant'
   key?: string
   content?: string
@@ -26,7 +26,7 @@ export default function Chattrbot() {
   const userName = 'Visitor'
   const [loading, setLoading] = React.useState(false)
   const [message, setMessage] = React.useState('')
-  const [messages, setMessages] = React.useState<ChattrMessages[]>([
+  const [messages, setMessages] = React.useState<ChattrMessage[]>([
     {
       content: `Hey! Thanks for visiting. I'm ${chattrBotName}, you can ask me anything!`,
       role: 'assistant',

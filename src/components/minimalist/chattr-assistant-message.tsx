@@ -11,8 +11,8 @@ export default function ChattrAssistantMessage({
     <div
       key={key}
       className='flex justify-end'>
-      <div className='dark:bg-chattrGrayDark rounded-chattrRoundedLarge bg-chattrBackgroundMuted px-3 py-2 shadow'>
-        <p className='text-chattrText dark:text-chattrTextDark max-w-[160px] break-words text-sm font-light'>
+      <div className='rounded-chattrRoundedLarge bg-chattrBackgroundMuted px-3 py-2 shadow dark:bg-chattrGrayDark'>
+        <p className='max-w-[160px] break-words text-sm font-light text-chattrText dark:text-chattrTextDark'>
           {content}
         </p>
       </div>

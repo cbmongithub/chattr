@@ -7,7 +7,7 @@ export default function ChattrLoader({
 }) {
   return (
     <div className='mb-3 flex justify-start'>
-      <div className='rounded-chattrRoundedMedium bg-chattrPrimary dark:bg-chattrPrimaryDark px-0.5 py-1.5'>
+      <div className='rounded-chattrRoundedMedium bg-chattrPrimary px-0.5 py-1.5 dark:bg-chattrPrimaryDark'>
         <div className='flex items-center justify-center px-3 py-2'>
           <div className='chattrDotDefault animate-chattrLoader'></div>
           <div className='chattrDotDefault animation-delay-200 animate-chattrLoader'></div>

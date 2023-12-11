@@ -24,12 +24,12 @@ export default function ChattrAssistantImage({
     <div
       key={key}
       className='flex justify-end'>
-      <div className='dark:bg-chattrGrayDark rounded-chattrRoundedLarge bg-chattrBackgroundMuted px-3 py-2 shadow'>
-        <p className='text-chattrText dark:text-chattrTextDark break-words text-sm font-light'>
+      <div className='rounded-chattrRoundedLarge bg-chattrBackgroundMuted px-3 py-2 shadow dark:bg-chattrGrayDark'>
+        <p className='break-words text-sm font-light text-chattrText dark:text-chattrTextDark'>
           Here&apos;s what i generated with your description, {data.description}
           :
         </p>
-        <div className='rounded-chattrRoundedLarge mb-2 mt-3 overflow-hidden'>
+        <div className='mb-2 mt-3 overflow-hidden rounded-chattrRoundedLarge'>
           <img
             alt='Framed Image'
             className='aspect-square w-full object-cover'

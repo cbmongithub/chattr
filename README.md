@@ -29,7 +29,7 @@ npm i chattr@latest
 
 # Configuration
 
-Before using `chattr`, we need to configure a few things. First, ensure that you are on the latest versions of `react, react-dom, and tailwindcss`. Feel free to try other versions, however do note that they have not been tested.
+Before using `chattr`, we need to configure a few things. First, ensure that you are on the latest versions of `react, react-dom, and tailwindcss`. Feel free to try other versions, however do note that they have not been tested. **Make sure tailwindcss is in dependencies and not devDependencies**
 
 ```json
     "react": "^18.2.0",
@@ -234,7 +234,7 @@ If you're using the `Minimalist.Chattrbot`, the route is a lot different in that
 
 A solution for the ui that I came up with is using a key value pair within the response object to tell the client what type of component to render. You can see it in action [here](https://github.com/christianbmartinez/chattr/blob/main/src/components/minimalist/chattr-messages.tsx).
 
-You can copy and paste the following as a starting point to `app/api/function-calling/route.ts`. Make sure to install `replicate` if you'd like to use the `create_video` function in this example.
+You can copy and paste the following as a starting point to `app/api/function-calling/route.ts`. Make sure to install `replicate` and `dayjs` if you'd like to use the `create_video` and `get_current_weather` functions in this example.
 
 ```typescript
 // app/api/function-calling/route.ts
