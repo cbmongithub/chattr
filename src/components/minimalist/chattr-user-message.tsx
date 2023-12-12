@@ -11,8 +11,8 @@ export default function ChattrUserMessage({
     <div
       key={key}
       className='flex justify-start'>
-      <div className='rounded-chattrRoundedLarge bg-chattrPrimary dark:bg-chattrPrimaryDark px-3 py-2 shadow'>
-        <p className='text-chattrTextDark max-w-[160px] break-words text-sm font-light'>
+      <div className='rounded-chattrRoundedLarge bg-chattrPrimary px-3 py-2 shadow dark:bg-chattrPrimaryDark'>
+        <p className='max-w-[160px] break-words text-sm font-light text-chattrTextDark'>
           {content}
         </p>
       </div>

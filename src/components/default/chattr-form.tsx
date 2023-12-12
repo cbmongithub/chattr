@@ -18,9 +18,9 @@ export default function ChattrForm({
   return (
     <form
       onSubmit={event => sendMessage(event)}
-      className='dark:bg-chattrPitchBlack rounded-b-chattrRoundedLarge border-chattrGray bg-chattrBackgroundMuted dark:border-chattrTextDark/10 z-40 flex h-16 items-center justify-between border-t px-2 py-2.5'>
+      className='z-40 flex h-16 items-center justify-between rounded-b-chattrRoundedLarge border-t border-chattrGray bg-chattrBackgroundMuted px-2 py-2.5 dark:border-chattrTextDark/10 dark:bg-chattrPitchBlack'>
       <input
-        className='rounded-chattrRoundedMedium border-chattrGray bg-chattrWhite text-chattrText placeholder:text-chattrSecondary/70 focus:border-chattrPrimary dark:border-chattrTextDark/10 dark:bg-chattrBlack dark:text-chattrTextDark dark:placeholder:text-chattrTextDark/50 dark:focus:border-chattrPrimaryDark h-10 min-w-0 flex-auto appearance-none border px-3 py-2 font-light focus:outline-none sm:text-sm'
+        className='h-10 min-w-0 flex-auto appearance-none rounded-chattrRoundedMedium border border-chattrGray bg-chattrWhite px-3 py-2 font-light text-chattrText placeholder:text-chattrSecondary/70 focus:border-chattrPrimary focus:outline-none dark:border-chattrTextDark/10 dark:bg-chattrBlack dark:text-chattrTextDark dark:placeholder:text-chattrTextDark/50 dark:focus:border-chattrPrimaryDark sm:text-sm'
         type='text'
         required
         placeholder='Ask a question...'
@@ -32,7 +32,7 @@ export default function ChattrForm({
       <button
         type='submit'
         disabled={loading}
-        className='rounded-chattrRoundedMedium bg-chattrPrimary text-chattrWhite hover:bg-chattrPrimaryDark disabled:bg-chattrPrimary/70 dark:bg-chattrPrimaryDark dark:hover:bg-chattrPrimaryDark/90 ml-2 h-10 flex-none items-center justify-center gap-2 px-3 py-2 text-sm font-semibold outline-offset-2 disabled:cursor-not-allowed'>
+        className='ml-2 h-10 flex-none items-center justify-center gap-2 rounded-chattrRoundedMedium bg-chattrPrimary px-3 py-2 text-sm font-semibold text-chattrWhite outline-offset-2 hover:bg-chattrPrimaryDark disabled:cursor-not-allowed disabled:bg-chattrPrimary/70 dark:bg-chattrPrimaryDark dark:hover:bg-chattrPrimaryDark/90'>
         Send
       </button>
     </form>

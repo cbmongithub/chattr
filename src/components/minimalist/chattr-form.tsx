@@ -21,7 +21,7 @@ export default function ChattrForm({
         onSubmit={event => sendMessage(event)}
         className='flex w-full items-center justify-between space-x-2'>
         <input
-          className='border-chattrGray dark:border-chattrGrayDark rounded-chattrRoundedSmall text-chattrText focus:border-chattrPrimary focus-visible:ring-chattrPrimary dark:text-chattrTextDark flex h-9 w-full flex-auto border bg-transparent px-2 py-1 text-sm font-light shadow-sm transition-colors placeholder:bg-transparent focus-visible:outline-none focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50'
+          className='flex h-9 w-full flex-auto rounded-chattrRoundedSmall border border-chattrGray bg-transparent px-2 py-1 text-sm font-light text-chattrText shadow-sm transition-colors placeholder:bg-transparent focus:border-chattrPrimary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-chattrPrimary disabled:cursor-not-allowed disabled:opacity-50 dark:border-chattrGrayDark dark:text-chattrTextDark'
           type='text'
           required
           autoComplete='off'
@@ -31,7 +31,7 @@ export default function ChattrForm({
           onChange={({ target: { value } }) => setMessage(value)}
         />
         <button
-          className='dark:bg-chattrGrayDark rounded-chattrRoundedSmall bg-chattrBackgroundMuted text-chattrText focus-visible:ring-chattrPrimary dark:text-chattrTextDark inline-flex h-9 w-9 items-center justify-center whitespace-nowrap text-sm font-medium shadow transition-colors hover:opacity-80 focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50'
+          className='inline-flex h-9 w-9 items-center justify-center whitespace-nowrap rounded-chattrRoundedSmall bg-chattrBackgroundMuted text-sm font-medium text-chattrText shadow transition-colors hover:opacity-80 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-chattrPrimary disabled:pointer-events-none disabled:opacity-50 dark:bg-chattrGrayDark dark:text-chattrTextDark'
           type='submit'
           disabled={loading}>
           <svg
