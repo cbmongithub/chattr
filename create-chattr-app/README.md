@@ -1,7 +1,11 @@
 # create-chattr-app
 
-A script for executing a Next.js Chattr app boilerplate.
+A script for generating a Next.js Chattr app boilerplate.
 
-This script is not meant to be installed, but executed for a remote repo.
+# Installation
 
-You can view the create-chattr-app repo [here](https://github.com/christianbmartinez/create-chattr-app)
+```bash
+npx create-chattr-app [your_app_name]
+```
+
+Refer to the create-chattr-app [repo](https://github.com/christianbmartinez/create-chattr-app) for usage instructions.

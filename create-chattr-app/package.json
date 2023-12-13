@@ -1,7 +1,7 @@
 {
   "name": "create-chattr-app",
-  "version": "1.0.0",
-  "description": "A script for executing a Next.js Chattr app boilerplate.",
+  "version": "1.0.3",
+  "description": "A script for generating a Next.js Chattr app boilerplate.",
   "bin": {
     "create-chattr-app": "./bin/create-chattr-app.js"
   },
