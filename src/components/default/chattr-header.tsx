@@ -10,16 +10,16 @@ function ChattrHeader({
   chattrBotName?: string
 }) {
   return (
-    <div className='z-40 flex h-14 w-full items-center justify-between rounded-t-chattrRoundedLarge border-b border-chattrGray bg-chattrBackgroundMuted px-3 py-2 dark:border-chattrTextDark/10 dark:bg-chattrPitchBlack'>
+    <div className='rounded-t-chattrRoundedLarge border-chattrGray bg-chattrWhite dark:border-chattrTextDark/10 dark:bg-chattrPitchBlack z-40 flex h-14 w-full items-center justify-between border-b px-3 py-2'>
       <div className='ml-1 flex flex-[0.5] justify-start'>
-        <h3 className='text-sm font-semibold tracking-wide text-chattrText dark:text-chattrTextDark'>
+        <h3 className='text-chattrText dark:text-chattrTextDark text-sm font-semibold tracking-wide'>
           {chattrBotName}
         </h3>
       </div>
       <div className='mr-1 flex flex-[0.5] justify-end'>
         <a
           onClick={toggle}
-          className='cursor-pointer text-chattrText hover:opacity-80 dark:text-chattrTextDark hover:dark:opacity-80'>
+          className='text-chattrText dark:text-chattrTextDark cursor-pointer hover:opacity-80 hover:dark:opacity-80'>
           <ChattrCloseIcon />
         </a>
       </div>
