@@ -3,11 +3,7 @@ import React from 'react'
 import ChattrAssistantMessage from './chattr-assistant-message'
 import ChattrUserMessage from './chattr-user-message'
 
-type ChattrMessage = {
-  role: 'user' | 'assistant'
-  key?: string
-  content?: string
-}
+import { ChattrMessage } from '../../types'
 
 function ChattrMessages({
   message: { content, role, key },

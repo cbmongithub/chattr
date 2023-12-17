@@ -1,13 +1,6 @@
 import React from 'react'
 
-type ChattrForm = {
-  setMessage: React.Dispatch<React.SetStateAction<string>>
-  sendMessage: (
-    event: React.MouseEvent | React.KeyboardEvent | React.FormEvent
-  ) => void
-  message: string
-  loading: boolean
-}
+import type { ChattrForm } from '../../types'
 
 export default function ChattrForm({
   setMessage,
@@ -18,7 +11,7 @@ export default function ChattrForm({
   return (
     <form
       onSubmit={event => sendMessage(event)}
-      className='rounded-b-chattrRoundedLarge border-chattrGray bg-chattrWhite dark:border-chattrTextDark/10 dark:bg-chattrPitchBlack z-40 flex h-16 items-center justify-between border-t px-2 py-2.5'>
+      className='dark:bg-chattrPitchBlack rounded-b-chattrRoundedLarge border-chattrGray bg-chattrWhite dark:border-chattrTextDark/10 z-40 flex h-16 items-center justify-between border-t px-2 py-2.5'>
       <input
         className='rounded-chattrRoundedMedium border-chattrGray bg-chattrWhite text-chattrText placeholder:text-chattrSecondary/70 focus:border-chattrPrimary dark:border-chattrTextDark/10 dark:bg-chattrBlack dark:text-chattrTextDark dark:placeholder:text-chattrTextDark/50 dark:focus:border-chattrPrimaryDark h-10 min-w-0 flex-auto appearance-none border px-3 py-2 font-light focus:outline-none sm:text-sm'
         type='text'
