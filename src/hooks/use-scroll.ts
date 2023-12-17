@@ -9,6 +9,8 @@ import type { ChattrMessage } from '../types'
  *
  * @returns The reference object used to manipulate the referenced DOM element (the `div`).
  *
+ * @default ref null
+ *
  */
 
 export default function useScroll(messages: ChattrMessage[]) {
