@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 
 import ChattrAssistantMessage from './chattr-assistant-message'
 
@@ -31,7 +30,7 @@ export default function ChattrAssistantImage({
           :
         </p>
         <div className='rounded-chattrRoundedLarge mb-2 mt-3 overflow-hidden'>
-          <Image
+          <img
             alt={`Chattr | ${data.description}`}
             className='aspect-square w-full object-cover'
             src={data.url}
