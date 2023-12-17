@@ -6,23 +6,7 @@ import ChattrAssistantImage from './chattr-assistant-image'
 import ChattrAssistantWeather from './chattr-assistant-weather'
 import ChattrAssistantVideo from './chattr-assistant-video'
 
-type ChattrMessage = {
-  role: 'user' | 'assistant'
-  key?: string
-  content?: string
-  ui: string
-  data?: {
-    temperature: string
-    celcius: string
-    location: string
-    description: string
-    humidity: string
-    wind: string
-    clouds: string
-    state: string
-    url: string
-  }
-}
+import type { ChattrMessage } from '../../types'
 
 function ChattrMessages({
   message: { content, role, key, ui, data },

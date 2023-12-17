@@ -6,17 +6,12 @@ import ChattrContainer from './chattr-container'
 import ChattrFeed from './chattr-feed'
 import ChattrForm from './chattr-form'
 import ChattrHeader from './chattr-header'
-import ChattrOpenButton from './chattr-open-button'
+import { ChattrOpenButton } from '../shared'
 
-type ChattrMessage = {
-  role: 'user' | 'assistant'
-  key?: string
-  content?: string
-}
+import type { ChattrMessage } from '../../types'
 
 /**
  * Chattrbot - A pre made chatbot solution with light/dark mode tailwind css classes. Uses basic chat functionality with chatgpt models.
- *
  * @returns The entire Default Chattrbot component.
  */
 
