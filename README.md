@@ -136,7 +136,7 @@ REPLICATE_API_TOKEN='YOUR_REPLICATE_TOKEN'
 
 # Themes
 
-Chattr currently has two themes- `Default` and `Minimalist`. The default theme was styled by me, and the minimalist theme was styled originally by [shadcn](https://ui.shadcn.com/themes) and has been highly customized to be used as a chattrbot. Shadcn himself even [reposted](https://twitter.com/_coderchris/status/1729318382355587335) the tweet of his chat component being used in chattr!
+Chattr currently has two themes- `Default` and `Minimalist`. The default theme was styled by me, and the minimalist theme was styled originally by [shadcn](https://ui.shadcn.com/themes) and has been highly customized to be used as a chattrbot. Shadcn himself even [reposted](https://twitter.com/cbmonx/status/1729318382355587335) the tweet of his chat component being used in chattr!
 
 To see how the themes work, please visit the chattr [repo](https://github.com/christianbmartinez/chattr)
 
@@ -171,9 +171,9 @@ export async function POST(req: NextRequest) {
           role: 'system',
           content: `
           You are a chatbot named ${chattrBotName}.
-          Respond with any information that the user requests. 
+          Respond with any information that the user requests.
           You can view the entire chat history here, where your role is the assistant, and the users role is user: ${chatHistory}.
-          This history is helpful if you need to recall any information or understand context from chat. 
+          This history is helpful if you need to recall any information or understand context from chat.
           Use a professional tone in your responses.`,
         },
         {
@@ -265,9 +265,9 @@ export async function POST(req: NextRequest) {
           role: 'system',
           content: `
           You are a chatbot named ${chattrBotName}.
-          Respond with any information that the user requests. 
+          Respond with any information that the user requests.
           You can view the entire chat history here, where your role is the assistant, and the users role is user: ${chatHistory}.
-          This history is helpful if you need to recall any information or understand context from chat. 
+          This history is helpful if you need to recall any information or understand context from chat.
           Use a professional tone in your responses.`,
         },
         {
@@ -494,11 +494,11 @@ export default function RootLayout({
 
 # Customizations
 
-If you need more control over the styles, you can view the chattr repo [here](https://github.com/christianbmartinez/chattr). Copy existing code, create new bots, expand on existing bots, etc. The code is open source and yours to use!
+If you need more control over the styles, you can view the chattr repo [here](https://github.com/cbmongithub/chattr). Copy existing code, create new bots, expand on existing bots, etc. The code is open source and yours to use!
 
 # Create Chattr App
 
-If you need full customization over the components themselves, checkout the newly shipped [create-chattr-app](https://github.com/christianbmartinez/create-chattr-app)! It is a Next js boilerplate that ships with all chatbot component files, routes, and a landing page already setup for you. All you need is your api keys!
+If you need full customization over the components themselves, checkout the newly shipped [create-chattr-app](https://github.com/cbmongithub/create-chattr-app)! It is a Next js boilerplate that ships with all chatbot component files, routes, and a landing page already setup for you. All you need is your api keys!
 
 # License
 
@@ -514,10 +514,10 @@ More themes are coming, such as full screen layout instead of a widget. If you h
 
 # Author
 
-Made with <3 by [Christian B. Martinez](https://christianbmartinez.com). Lets connect on [Github](https://github.com/christianbmartinez) or [X (twitter)](https://www.twitter.com/_coderchris)!
+Made with <3 by [Christian B. Martinez](https://christianbmartinez.com). Lets connect on [Github](https://github.com/cbmongithub) or [X (twitter)](https://www.twitter.com/cbmonx)!
 
 Hiring? I would love the opportunity to become apart of your team! [contact me](mailto:hello@christianbmartinez.com?subject=Join%20%our%20Team) anytime.
 
 # Sponsors
 
-If you like the project and it adds value to you, feel free to [sponsor me](https://github.com/sponsors/christianbmartinez) if you'd like!
+If you like the project and it adds value to you, feel free to [sponsor me](https://github.com/sponsors/cbmongithub) if you'd like!

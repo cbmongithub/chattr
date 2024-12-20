@@ -1,13 +1,13 @@
 import React from 'react'
 
-import type { ChattrForm } from '../../types'
+import type { ChattrFormProps } from '../../types'
 
 export default function ChattrForm({
   setMessage,
   sendMessage,
   message,
   loading,
-}: ChattrForm) {
+}: ChattrFormProps) {
   return (
     <form
       onSubmit={event => sendMessage(event)}

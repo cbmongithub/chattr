@@ -2,10 +2,10 @@ import React from 'react'
 
 import { useScroll } from '../../hooks'
 
-import ChattrMessages from './chattr-messages'
 import ChattrLoader from './chattr-loader'
+import ChattrMessages from './chattr-messages'
 
-import { ChattrMessage } from '../../types'
+import type { ChattrMessageProps } from '../../types'
 
 function ChattrFeed({
   messages,
@@ -13,7 +13,7 @@ function ChattrFeed({
   chattrBotName,
   loading,
 }: {
-  messages: ChattrMessage[]
+    messages: ChattrMessageProps[]
   userName?: string
   chattrBotName?: string
   loading?: boolean
@@ -24,7 +24,7 @@ function ChattrFeed({
     <div
       ref={ref}
       className='max-h-[275px] flex-auto overflow-y-scroll px-3'>
-      <div className='mb-3'></div>
+      <div className='mb-3' />
       {messages.map((message, i) => (
         <ChattrMessages
           key={`${message.role}_message_${i}`}

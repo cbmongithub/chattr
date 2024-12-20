@@ -9,7 +9,6 @@ export default function ChattrOpenButton({ toggle }: { toggle: () => void }) {
         onClick={toggle}
         className='bg-chattrWhite dark:bg-chattrBlack group rounded-full p-3 shadow'
         type='button'
-        role='button'
         aria-label='Toggle Chattrbot'>
         <ChattrOpenIcon />
       </button>

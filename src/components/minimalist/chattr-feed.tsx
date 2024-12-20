@@ -2,16 +2,16 @@ import React from 'react'
 
 import { useScroll } from '../../hooks'
 
-import ChattrMessages from './chattr-messages'
 import ChattrLoader from './chattr-loader'
+import ChattrMessages from './chattr-messages'
 
-import type { ChattrMessage } from '../../types'
+import type { ChattrMessageProps } from '../../types'
 
 function ChattrFeed({
   messages,
   loading,
 }: {
-  messages: ChattrMessage[]
+    messages: ChattrMessageProps[]
   loading: boolean
 }) {
   const ref = useScroll(messages)

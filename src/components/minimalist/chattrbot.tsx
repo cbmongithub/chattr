@@ -8,7 +8,7 @@ import ChattrForm from './chattr-form'
 import ChattrHeader from './chattr-header'
 import { ChattrOpenButton } from '../shared'
 
-import type { ChattrMessage } from '../../types'
+import type { ChattrMessageProps } from '../../types'
 
 /**
  * Chattrbot - A pre made chatbot solution with light/dark mode tailwind css classes. Uses function calling features.
@@ -20,7 +20,7 @@ export default function Chattrbot() {
   const chattrBotName = 'Chattrbot'
   const [loading, setLoading] = React.useState(false)
   const [message, setMessage] = React.useState('')
-  const [messages, setMessages] = React.useState<ChattrMessage[]>([
+  const [messages, setMessages] = React.useState<ChattrMessageProps[]>([
     {
       ui: 'default',
       content: `Hey! Thanks for visiting. I'm ${chattrBotName}, you can ask me anything!`,

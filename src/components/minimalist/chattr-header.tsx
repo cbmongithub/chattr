@@ -16,7 +16,7 @@ export default function ChattrHeader({
       <div className='flex items-center space-x-4'>
         <span className='relative flex h-10 w-10 flex-none items-center justify-center rounded-full border border-chattrGray dark:border dark:border-chattrGrayDark'>
           <img
-            alt='Chatbot Image'
+            alt='Chatbot'
             width={28}
             height={28}
             className='h-9 w-9 rounded-full'
@@ -33,6 +33,7 @@ export default function ChattrHeader({
         </div>
       </div>
       <button
+        type='button'
         onClick={toggle}
         className='ml-auto inline-flex h-5 w-5 items-start justify-end text-sm font-medium hover:opacity-60'>
         <ChattrCloseIcon />

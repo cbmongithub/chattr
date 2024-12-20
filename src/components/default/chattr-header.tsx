@@ -17,11 +17,12 @@ function ChattrHeader({
         </h3>
       </div>
       <div className='mr-1 flex flex-[0.5] justify-end'>
-        <a
+        <button
+          type='button'
           onClick={toggle}
-          className='text-chattrText dark:text-chattrTextDark cursor-pointer hover:opacity-80 hover:dark:opacity-80'>
+          className='text-chattrText dark:text-chattrTextDark cursor-pointer hover:opacity-80 hover:dark:opacity-80 bg-transparent border-none'>
           <ChattrCloseIcon />
-        </a>
+        </button>
       </div>
     </div>
   )

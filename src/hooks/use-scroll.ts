@@ -1,17 +1,17 @@
 import React from 'react'
 
-import type { ChattrMessage } from '../types'
+import type { ChattrMessageProps } from '../types'
 
 /**
  * Manages automatic scrolling of new content to the bottom of the ChattrFeed.
  *
- * @param messages An array of ChattrMessage objects.
+ * @param messages An array of ChattrMessageProps objects.
  *
  * @returns The reference object used to manipulate the referenced DOM element (the `div`).
  *
  */
 
-export default function useScroll(messages: ChattrMessage[]) {
+export default function useScroll(messages: ChattrMessageProps[]) {
   const ref = React.useRef<HTMLDivElement>(null)
 
   React.useEffect(() => {

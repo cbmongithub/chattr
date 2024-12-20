@@ -1,4 +1,4 @@
-export type ChattrMessage = {
+export type ChattrMessageProps = {
   role: 'user' | 'assistant'
   key?: string
   content?: string
@@ -16,7 +16,7 @@ export type ChattrMessage = {
   }
 }
 
-export type ChattrForm = {
+export type ChattrFormProps = {
   setMessage: React.Dispatch<React.SetStateAction<string>>
   sendMessage: (
     event: React.MouseEvent | React.KeyboardEvent | React.FormEvent

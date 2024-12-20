@@ -2,13 +2,13 @@ import React from 'react'
 
 import { useChattr } from '../../hooks'
 
+import { ChattrOpenButton } from '../shared'
 import ChattrContainer from './chattr-container'
 import ChattrFeed from './chattr-feed'
 import ChattrForm from './chattr-form'
 import ChattrHeader from './chattr-header'
-import { ChattrOpenButton } from '../shared'
 
-import type { ChattrMessage } from '../../types'
+import type { ChattrMessageProps } from '../../types'
 
 /**
  * Chattrbot - A pre made chatbot solution with light/dark mode tailwind css classes. Uses basic chat functionality with chatgpt models.
@@ -21,7 +21,7 @@ export default function Chattrbot() {
   const userName = 'Visitor'
   const [loading, setLoading] = React.useState(false)
   const [message, setMessage] = React.useState('')
-  const [messages, setMessages] = React.useState<ChattrMessage[]>([
+  const [messages, setMessages] = React.useState<ChattrMessageProps[]>([
     {
       content: `Hey! Thanks for visiting. I'm ${chattrBotName}, you can ask me anything!`,
       role: 'assistant',

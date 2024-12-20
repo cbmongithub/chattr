@@ -4,7 +4,7 @@ import terser from '@rollup/plugin-terser'
 import json from '@rollup/plugin-json'
 import typescript from '@rollup/plugin-typescript'
 import { dts } from 'rollup-plugin-dts'
-import packageJson from './package.json' assert { type: 'json' }
+import packageJson from './package.json' with { type: 'json' }
 
 export default [
   {
