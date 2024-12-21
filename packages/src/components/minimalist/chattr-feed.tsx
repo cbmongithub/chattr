@@ -9,31 +9,24 @@ import type { ChattrMessageProps } from '../../types'
 
 function ChattrFeed({
   messages,
-  userName,
-  chattrBotName,
   loading,
 }: {
-    messages: ChattrMessageProps[]
-  userName?: string
-  chattrBotName?: string
-  loading?: boolean
+  messages: ChattrMessageProps[]
+  loading: boolean
 }) {
   const ref = useScroll(messages)
 
   return (
     <div
       ref={ref}
-      className='max-h-[275px] flex-auto overflow-y-scroll px-3'>
-      <div className='mb-3' />
+      className='max-h-[245px] min-h-[245px] flex-auto overflow-y-scroll'>
       {messages.map((message, i) => (
         <ChattrMessages
           key={`${message.role}_message_${i}`}
           message={message}
-          userName={userName}
-          chattrBotName={chattrBotName}
         />
       ))}
-      {loading && <ChattrLoader chattrBotName={chattrBotName} />}
+      {loading && <ChattrLoader />}
     </div>
   )
 }
